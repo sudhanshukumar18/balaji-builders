@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { FadeInLeft, FadeInRight, FadeInUp, StaggerContainer, StaggerItem } from '@/components/ui/motion';
 
 const AboutSection = () => {
   const highlights = [
@@ -15,7 +16,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
-          <div>
+          <FadeInLeft>
             <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
               About Us
             </p>
@@ -31,10 +32,12 @@ const AboutSection = () => {
             </p>
             <ul className="space-y-4 mb-8">
               {highlights.map((item, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground font-medium">{item}</span>
-                </li>
+                <FadeInUp key={index} delay={0.1 * index}>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-foreground font-medium">{item}</span>
+                  </li>
+                </FadeInUp>
               ))}
             </ul>
             <Button asChild className="btn-primary rounded-none group">
@@ -43,11 +46,11 @@ const AboutSection = () => {
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-          </div>
+          </FadeInLeft>
 
           {/* Right Stats Cards */}
-          <div className="grid grid-cols-2 gap-4 lg:gap-6">
-            <div className="bg-background p-6 lg:p-8 shadow-card card-hover">
+          <StaggerContainer className="grid grid-cols-2 gap-4 lg:gap-6">
+            <StaggerItem className="bg-background p-6 lg:p-8 shadow-card card-hover">
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">5.0</p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Google Rating</p>
               <div className="flex gap-1 mt-3">
@@ -57,23 +60,23 @@ const AboutSection = () => {
                   </svg>
                 ))}
               </div>
-            </div>
-            <div className="bg-charcoal p-6 lg:p-8 shadow-card card-hover mt-8">
+            </StaggerItem>
+            <StaggerItem className="bg-charcoal p-6 lg:p-8 shadow-card card-hover mt-8">
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">6+</p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Satisfied Clients</p>
               <p className="text-accent-foreground/70 text-sm mt-3">& Growing</p>
-            </div>
-            <div className="bg-charcoal p-6 lg:p-8 shadow-card card-hover -mt-8">
+            </StaggerItem>
+            <StaggerItem className="bg-charcoal p-6 lg:p-8 shadow-card card-hover -mt-8">
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">15+</p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Years Experience</p>
               <p className="text-accent-foreground/70 text-sm mt-3">Since 2009</p>
-            </div>
-            <div className="bg-background p-6 lg:p-8 shadow-card card-hover">
+            </StaggerItem>
+            <StaggerItem className="bg-background p-6 lg:p-8 shadow-card card-hover">
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">100%</p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Commitment</p>
               <p className="text-foreground/70 text-sm mt-3">To Excellence</p>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </div>
     </section>
