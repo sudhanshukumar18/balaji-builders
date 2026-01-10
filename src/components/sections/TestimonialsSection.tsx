@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FadeInLeft, FadeInRight } from '@/components/ui/motion';
 
 const testimonials = [
   {
@@ -44,7 +46,7 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
-          <div>
+          <FadeInLeft>
             <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
               Testimonials
             </p>
@@ -68,10 +70,10 @@ const TestimonialsSection = () => {
               homeowners and businesses across Wardha. Read what our clients have to say about
               working with us.
             </p>
-          </div>
+          </FadeInLeft>
 
           {/* Right Testimonial Card */}
-          <div className="relative">
+          <FadeInRight className="relative">
             <div className="bg-background p-8 lg:p-12 shadow-elevated relative overflow-hidden">
               <Quote className="absolute top-6 right-6 w-16 h-16 text-primary/10" />
               <div className="relative z-10">
@@ -82,40 +84,48 @@ const TestimonialsSection = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-foreground text-lg lg:text-xl leading-relaxed mb-8">
-                  "{testimonials[currentIndex].quote}"
-                </p>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-display text-xl text-foreground">
-                      {testimonials[currentIndex].name}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentIndex}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="text-foreground text-lg lg:text-xl leading-relaxed mb-8">
+                      "{testimonials[currentIndex].quote}"
                     </p>
-                    <p className="text-muted-foreground text-sm">
-                      {testimonials[currentIndex].title}
-                    </p>
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={prevTestimonial}
-                      className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors"
-                      aria-label="Previous testimonial"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
-                      onClick={nextTestimonial}
-                      className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors"
-                      aria-label="Next testimonial"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
-                  </div>
+                    <div>
+                      <p className="font-display text-xl text-foreground">
+                        {testimonials[currentIndex].name}
+                      </p>
+                      <p className="text-muted-foreground text-sm">
+                        {testimonials[currentIndex].title}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+                <div className="flex gap-2 mt-6">
+                  <button
+                    onClick={prevTestimonial}
+                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors"
+                    aria-label="Previous testimonial"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors"
+                    aria-label="Next testimonial"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
                 </div>
               </div>
             </div>
             {/* Decorative Element */}
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 -z-10" />
-          </div>
+          </FadeInRight>
         </div>
       </div>
     </section>

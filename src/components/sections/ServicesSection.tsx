@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Home, Building2, Paintbrush, Ruler } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { FadeInUp, StaggerContainer } from '@/components/ui/motion';
 
 const services = [
   {
@@ -38,7 +40,7 @@ const ServicesSection = () => {
     <section className="section-padding bg-charcoal">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <FadeInUp className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
             Our Services
           </p>
@@ -49,40 +51,48 @@ const ServicesSection = () => {
             From initial design to final construction, we offer end-to-end building solutions
             tailored to your specific needs and budget.
           </p>
-        </div>
+        </FadeInUp>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => (
-            <Link
+            <motion.div
               key={service.slug}
-              to={`/services#${service.slug}`}
-              className="group bg-charcoal-light p-8 border border-muted-foreground/10 hover:border-primary/50 transition-all duration-300 card-hover"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
-              </div>
-              <h3 className="font-display text-2xl text-accent-foreground mb-4">{service.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                {service.description}
-              </p>
-              <span className="inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                Learn More
-                <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
+              <Link
+                to={`/services#${service.slug}`}
+                className="group bg-charcoal-light p-8 border border-muted-foreground/10 hover:border-primary/50 transition-all duration-300 card-hover block h-full"
+              >
+                <div className="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <h3 className="font-display text-2xl text-accent-foreground mb-4">{service.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  {service.description}
+                </p>
+                <span className="inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
+                  Learn More
+                  <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* CTA */}
-        <div className="text-center">
+        <FadeInUp className="text-center">
           <Button asChild className="btn-primary rounded-none group">
             <Link to="/services">
               View All Services
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-        </div>
+        </FadeInUp>
       </div>
     </section>
   );
