@@ -7,6 +7,8 @@ import projectResidential1 from '@/assets/project-residential-1.jpg';
 import projectCommercial1 from '@/assets/project-commercial-1.jpg';
 import projectResidential2 from '@/assets/project-residential-2.jpg';
 import projectBungalow from '@/assets/project-bungalow.jpg';
+import SEOHead from '@/components/SEOHead';
+import { BreadcrumbSchema } from '@/components/StructuredData';
 
 const projectsData: Record<string, {
   title: string;
@@ -107,6 +109,16 @@ const ProjectDetail = () => {
 
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title={`${project.title} - ${project.category} Project`}
+        description={`${project.description} Located in ${project.location}. ${project.area} built-up area completed in ${project.year} by Balaji Constructions.`}
+        canonical={`/projects/${slug}`}
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: '/' },
+        { name: 'Projects', url: '/projects' },
+        { name: project.title, url: `/projects/${slug}` }
+      ]} />
       <Header />
       
       {/* Hero Section */}
