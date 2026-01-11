@@ -7,6 +7,8 @@ import projectCommercial1 from '@/assets/project-commercial-1.jpg';
 import projectResidential2 from '@/assets/project-residential-2.jpg';
 import projectBungalow from '@/assets/project-bungalow.jpg';
 import heroImage from '@/assets/hero-construction.jpg';
+import SEOHead from '@/components/SEOHead';
+import { BreadcrumbSchema } from '@/components/StructuredData';
 
 const projects = [
   {
@@ -46,6 +48,12 @@ const projects = [
 const Projects = () => {
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title="Our Projects - Construction Portfolio"
+        description="View our completed construction projects in Wardha: residential villas, commercial buildings, apartments, and bungalows. Quality craftsmanship by Balaji Constructions."
+        canonical="/projects"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Projects', url: '/projects' }]} />
       <Header />
       
       {/* Hero Section */}

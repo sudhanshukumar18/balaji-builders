@@ -4,6 +4,8 @@ import Footer from '@/components/Footer';
 import { Home, Building2, Paintbrush, Ruler, ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-construction.jpg';
+import SEOHead from '@/components/SEOHead';
+import { BreadcrumbSchema, ServiceSchema } from '@/components/StructuredData';
 
 const services = [
   {
@@ -63,6 +65,13 @@ const services = [
 const Services = () => {
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title="Construction Services - Residential & Commercial"
+        description="Professional construction services in Wardha: residential homes, commercial buildings, interior design, and architectural planning. Get free quote from Balaji Constructions."
+        canonical="/services"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }]} />
+      <ServiceSchema serviceName="Construction Services" serviceDescription="Complete construction services including residential, commercial, interior design and planning in Wardha, Maharashtra." />
       <Header />
       
       {/* Hero Section */}

@@ -1,3 +1,6 @@
+# Balaji Design & Constructions - Wardha, Maharashtra
+# https://www.robotstxt.org/robotstxt.html
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://balajidesign.com/sitemap.xml

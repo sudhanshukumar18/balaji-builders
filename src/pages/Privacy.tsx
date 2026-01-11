@@ -1,9 +1,16 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
 
 const Privacy = () => {
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title="Privacy Policy"
+        description="Privacy policy for Balaji Design & Constructions. Learn how we collect, use, and protect your personal information."
+        canonical="/privacy"
+        noindex={true}
+      />
       <Header />
       
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-cream">

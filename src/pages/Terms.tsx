@@ -1,9 +1,16 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
 
 const Terms = () => {
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title="Terms & Conditions"
+        description="Terms and conditions for Balaji Design & Constructions services. Read about our project agreements, payment terms, and policies."
+        canonical="/terms"
+        noindex={true}
+      />
       <Header />
       
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-cream">

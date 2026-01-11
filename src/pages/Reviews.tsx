@@ -1,6 +1,8 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Quote } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import { BreadcrumbSchema } from '@/components/StructuredData';
 
 const reviews = [
   {
@@ -50,6 +52,12 @@ const reviews = [
 const Reviews = () => {
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title="Client Reviews - 5.0★ Google Rating"
+        description="Read reviews from satisfied clients of Balaji Design & Constructions. 5.0 star Google rating with 6+ reviews. Trusted builders in Wardha, Maharashtra."
+        canonical="/reviews"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Reviews', url: '/reviews' }]} />
       <Header />
       
       {/* Hero Section */}

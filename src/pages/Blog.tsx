@@ -5,6 +5,8 @@ import { ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-construction.jpg';
 import projectResidential1 from '@/assets/project-residential-1.jpg';
 import projectCommercial1 from '@/assets/project-commercial-1.jpg';
+import SEOHead from '@/components/SEOHead';
+import { BreadcrumbSchema } from '@/components/StructuredData';
 
 const blogPosts = [
   {
@@ -39,6 +41,12 @@ const blogPosts = [
 const Blog = () => {
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title="Construction Blog - Tips & Industry Insights"
+        description="Read construction tips, design trends, and industry insights from Wardha's top builders. Expert advice on home building, materials, and project planning."
+        canonical="/blog"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }]} />
       <Header />
       
       {/* Hero Section */}

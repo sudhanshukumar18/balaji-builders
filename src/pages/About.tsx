@@ -2,6 +2,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CheckCircle, Users, Award, Clock } from 'lucide-react';
 import heroImage from '@/assets/hero-construction.jpg';
+import SEOHead from '@/components/SEOHead';
+import { BreadcrumbSchema } from '@/components/StructuredData';
 
 const About = () => {
   const values = [
@@ -29,6 +31,12 @@ const About = () => {
 
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title="About Us - 15+ Years Construction Experience"
+        description="Learn about Balaji Design & Constructions, Wardha's trusted builder since 2009. 15+ years experience, 5.0★ rating, quality construction with honest work ethics."
+        canonical="/about"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'About Us', url: '/about' }]} />
       <Header />
       
       {/* Hero Section */}

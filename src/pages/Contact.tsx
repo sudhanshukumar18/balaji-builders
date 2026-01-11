@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import heroImage from '@/assets/hero-construction.jpg';
+import SEOHead from '@/components/SEOHead';
+import { BreadcrumbSchema } from '@/components/StructuredData';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -33,6 +35,12 @@ const Contact = () => {
 
   return (
     <main className="min-h-screen">
+      <SEOHead
+        title="Contact Us - Get Free Construction Quote"
+        description="Contact Balaji Design & Constructions for free quote. Call +91 86248 38652 or visit us at Mhada Colony, Arvi Naka, Wardha. Professional builders in Maharashtra."
+        canonical="/contact"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Contact', url: '/contact' }]} />
       <Header />
       
       {/* Hero Section */}
