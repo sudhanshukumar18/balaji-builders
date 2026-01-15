@@ -40,15 +40,35 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 60, scale: 0.95 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    }),
+  };
+
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <FadeInUp className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
           <div>
-            <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
+            <motion.p 
+              className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               Our Work
-            </p>
+            </motion.p>
             <h2 className="section-title text-foreground">
               Featured Projects
             </h2>
@@ -60,52 +80,90 @@ const ProjectsSection = () => {
         </FadeInUp>
 
         {/* Projects Grid */}
-        <StaggerContainer className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={cardVariants}
             >
               <Link
                 to={`/projects/${project.slug}`}
-                className="group relative overflow-hidden bg-muted aspect-[4/3] card-hover block"
+                className="group relative overflow-hidden bg-muted aspect-[4/3] block"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                <motion.div 
+                  className="absolute inset-0"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"
+                  initial={{ opacity: 0.7 }}
+                  whileHover={{ opacity: 0.9 }}
+                  transition={{ duration: 0.3 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent" />
+                
                 <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                  <p className="text-primary text-sm uppercase tracking-wider mb-2">
+                  <motion.p 
+                    className="text-primary text-sm uppercase tracking-wider mb-2"
+                    initial={{ y: 10, opacity: 0.8 }}
+                    whileHover={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     {project.category}
-                  </p>
+                  </motion.p>
                   <div className="flex items-end justify-between">
-                    <h3 className="font-display text-2xl lg:text-3xl text-accent-foreground">
+                    <motion.h3 
+                      className="font-display text-2xl lg:text-3xl text-accent-foreground"
+                      initial={{ y: 10 }}
+                      whileHover={{ y: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       {project.title}
-                    </h3>
-                    <div className="w-10 h-10 rounded-full border border-accent-foreground/30 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                    </motion.h3>
+                    <motion.div 
+                      className="w-10 h-10 rounded-full border border-accent-foreground/30 flex items-center justify-center"
+                      whileHover={{ 
+                        scale: 1.1, 
+                        backgroundColor: 'hsl(var(--primary))',
+                        borderColor: 'hsl(var(--primary))',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                    >
                       <ArrowUpRight className="w-4 h-4 text-accent-foreground" />
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </Link>
             </motion.div>
           ))}
-        </StaggerContainer>
+        </div>
 
         {/* CTA */}
         <FadeInUp className="text-center">
-          <Button asChild className="btn-primary rounded-none group">
-            <Link to="/projects">
-              View All Projects
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
+          <motion.div
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            className="inline-block"
+          >
+            <Button asChild className="btn-primary rounded-none group">
+              <Link to="/projects">
+                View All Projects
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </motion.div>
         </FadeInUp>
       </div>
     </section>
