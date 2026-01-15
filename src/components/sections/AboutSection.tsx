@@ -12,18 +12,18 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-cream">
+    <section className="section-padding bg-secondary/50">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
           <FadeInLeft>
-            <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
+            <p className="text-primary font-semibold text-sm uppercase tracking-[0.2em] mb-4">
               About Us
             </p>
             <h2 className="section-title text-foreground mb-6">
               Your Trusted Construction
               <br />
-              Partner in Wardha
+              <span className="text-primary">Partner in Wardha</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
               Balaji Design & Constructions has been serving Wardha and surrounding areas for over
@@ -50,7 +50,7 @@ const AboutSection = () => {
 
           {/* Right Stats Cards */}
           <StaggerContainer className="grid grid-cols-2 gap-4 lg:gap-6">
-            <StaggerItem className="bg-background p-6 lg:p-8 shadow-card card-hover">
+            <StaggerItem className="bg-card border border-border p-6 lg:p-8 shadow-elevated card-hover rounded-lg">
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">5.0</p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Google Rating</p>
               <div className="flex gap-1 mt-3">
@@ -61,17 +61,17 @@ const AboutSection = () => {
                 ))}
               </div>
             </StaggerItem>
-            <StaggerItem className="bg-charcoal p-6 lg:p-8 shadow-card card-hover mt-8">
+            <StaggerItem className="bg-primary/10 border border-primary/20 p-6 lg:p-8 shadow-elevated card-hover mt-8 rounded-lg">
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">6+</p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Satisfied Clients</p>
-              <p className="text-accent-foreground/70 text-sm mt-3">& Growing</p>
+              <p className="text-foreground/70 text-sm mt-3">& Growing</p>
             </StaggerItem>
-            <StaggerItem className="bg-charcoal p-6 lg:p-8 shadow-card card-hover -mt-8">
+            <StaggerItem className="bg-primary/10 border border-primary/20 p-6 lg:p-8 shadow-elevated card-hover -mt-8 rounded-lg">
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">15+</p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Years Experience</p>
-              <p className="text-accent-foreground/70 text-sm mt-3">Since 2009</p>
+              <p className="text-foreground/70 text-sm mt-3">Since 2009</p>
             </StaggerItem>
-            <StaggerItem className="bg-background p-6 lg:p-8 shadow-card card-hover">
+            <StaggerItem className="bg-card border border-border p-6 lg:p-8 shadow-elevated card-hover rounded-lg">
               <p className="font-display text-5xl lg:text-6xl text-primary mb-2">100%</p>
               <p className="text-muted-foreground text-sm uppercase tracking-wide">Commitment</p>
               <p className="text-foreground/70 text-sm mt-3">To Excellence</p>
