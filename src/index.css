@@ -204,4 +204,124 @@
   .link-underline:hover::after {
     @apply w-full;
   }
+
+  /* Animated Gradient Header Styles */
+  .header-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--charcoal)) 0%,
+      hsl(var(--primary)) 25%,
+      hsl(var(--charcoal-light)) 50%,
+      hsl(var(--gold)) 75%,
+      hsl(var(--charcoal)) 100%
+    );
+    background-size: 400% 400%;
+  }
+
+  .header-gradient-scrolled {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--charcoal) / 0.95) 0%,
+      hsl(var(--charcoal-light) / 0.95) 50%,
+      hsl(var(--charcoal) / 0.95) 100%
+    );
+    background-size: 200% 200%;
+  }
+
+  .animated-border-gradient {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary)) 25%,
+      hsl(var(--gold)) 50%,
+      hsl(var(--primary)) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+  }
+
+  .nav-link-gradient {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--foreground)) 0%,
+      hsl(var(--primary)) 50%,
+      hsl(var(--gold)) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: background-position 0.4s ease;
+  }
+
+  .nav-link-gradient:hover {
+    background-position: 100% 50%;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .logo-glow {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .logo-glow:hover {
+    box-shadow: 0 0 20px 4px hsl(var(--primary) / 0.4);
+  }
+
+  .btn-gradient-border {
+    position: relative;
+    background: hsl(var(--primary));
+    z-index: 1;
+  }
+
+  .btn-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)),
+      hsl(var(--gold)),
+      hsl(var(--primary))
+    );
+    background-size: 200% 100%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: border-flow 3s linear infinite;
+  }
+
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--primary-foreground) / 0.1),
+      transparent
+    );
+    transform: translateX(-100%);
+  }
+
+  .shimmer-effect:hover::after {
+    animation: shimmer 0.8s ease-in-out;
+  }
+
+  /* Mobile menu gradient */
+  .mobile-menu-gradient {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--charcoal)) 0%,
+      hsl(var(--charcoal-light)) 50%,
+      hsl(var(--charcoal)) 100%
+    );
+  }
 }
