@@ -17,7 +17,7 @@ const WhatsAppButton = () => {
   const [footerOffset, setFooterOffset] = useState(0);
 
   const phoneNumber = "918624838652";
-  const message = "Hi, I'm interested in your construction services. Can you share more details?";
+  const message = "Hi, I'd like to inquire about your construction services.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   useEffect(() => {
