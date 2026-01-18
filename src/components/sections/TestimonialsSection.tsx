@@ -72,7 +72,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="section-padding bg-cream overflow-hidden">
+    <section className="section-padding bg-secondary overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}

@@ -87,19 +87,19 @@ const About = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-cream p-8 text-center">
+              <div className="bg-secondary p-8 text-center border border-border">
                 <p className="font-display text-5xl text-primary mb-2">15+</p>
                 <p className="text-muted-foreground text-sm uppercase tracking-wide">Years Experience</p>
               </div>
-              <div className="bg-charcoal p-8 text-center">
+              <div className="bg-card p-8 text-center border border-border">
                 <p className="font-display text-5xl text-primary mb-2">5.0</p>
                 <p className="text-muted-foreground text-sm uppercase tracking-wide">Google Rating</p>
               </div>
-              <div className="bg-charcoal p-8 text-center">
+              <div className="bg-card p-8 text-center border border-border">
                 <p className="font-display text-5xl text-primary mb-2">6+</p>
                 <p className="text-muted-foreground text-sm uppercase tracking-wide">Happy Clients</p>
               </div>
-              <div className="bg-cream p-8 text-center">
+              <div className="bg-secondary p-8 text-center border border-border">
                 <p className="font-display text-5xl text-primary mb-2">100%</p>
                 <p className="text-muted-foreground text-sm uppercase tracking-wide">Satisfaction</p>
               </div>
@@ -109,7 +109,7 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="section-padding bg-cream">
+      <section className="section-padding bg-secondary">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">

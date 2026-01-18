@@ -76,7 +76,7 @@ const Contact = () => {
               <div className="space-y-6 mb-12">
                 <a
                   href="tel:+918624838652"
-                  className="flex items-start gap-4 p-6 bg-cream hover:bg-primary/5 transition-colors"
+                  className="flex items-start gap-4 p-6 bg-secondary border border-border hover:bg-primary/5 transition-colors"
                 >
                   <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-primary" />
@@ -88,7 +88,7 @@ const Contact = () => {
                 </a>
                 <a
                   href="mailto:contact@balajidesign.com"
-                  className="flex items-start gap-4 p-6 bg-cream hover:bg-primary/5 transition-colors"
+                  className="flex items-start gap-4 p-6 bg-secondary border border-border hover:bg-primary/5 transition-colors"
                 >
                   <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-primary" />
@@ -98,7 +98,7 @@ const Contact = () => {
                     <p className="text-muted-foreground">contact@balajidesign.com</p>
                   </div>
                 </a>
-                <div className="flex items-start gap-4 p-6 bg-cream">
+                <div className="flex items-start gap-4 p-6 bg-secondary border border-border">
                   <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
@@ -111,7 +111,7 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-6 bg-cream">
+                <div className="flex items-start gap-4 p-6 bg-secondary border border-border">
                   <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Clock className="w-5 h-5 text-primary" />
                   </div>

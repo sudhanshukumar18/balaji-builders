@@ -38,9 +38,10 @@
     --radius: 0.25rem;
 
     /* Custom tokens */
-    --charcoal: 0 0% 6%;
-    --charcoal-light: 0 0% 10%;
-    --cream: 40 15% 90%;
+    --charcoal: 0 0% 8%;
+    --charcoal-light: 0 0% 12%;
+    --cream: 0 0% 10%;
+    --cream-foreground: 0 0% 95%;
     --gold: 45 85% 55%;
     
     /* Gradients */

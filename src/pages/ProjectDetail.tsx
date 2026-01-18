@@ -94,7 +94,7 @@ const ProjectDetail = () => {
     return (
       <main className="min-h-screen">
         <Header />
-        <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-cream">
+        <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-background">
           <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center">
             <h1 className="font-display text-4xl text-foreground mb-4">Project Not Found</h1>
             <Link to="/projects" className="text-primary hover:underline">
@@ -163,7 +163,7 @@ const ProjectDetail = () => {
             </div>
 
             {/* Project Info */}
-            <div className="bg-cream p-8">
+            <div className="bg-secondary p-8 border border-border">
               <h3 className="font-display text-2xl text-foreground mb-6">Project Details</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">

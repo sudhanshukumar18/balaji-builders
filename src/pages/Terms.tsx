@@ -13,7 +13,7 @@ const Terms = () => {
       />
       <Header />
       
-      <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-cream">
+      <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-8">Terms & Conditions</h1>

@@ -131,7 +131,7 @@ const Services = () => {
                     </Link>
                   </Button>
                 </div>
-                <div className={`bg-cream aspect-square flex items-center justify-center ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className={`bg-secondary aspect-square flex items-center justify-center ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <service.icon className="w-32 h-32 text-primary/20" />
                 </div>
               </div>
