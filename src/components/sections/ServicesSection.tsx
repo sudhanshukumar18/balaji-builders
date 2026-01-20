@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Home, Building2, Paintbrush, Ruler } from 'lucide-react';
+import { ArrowRight, Home, Building2, Paintbrush, Ruler, KeyRound, Compass, PenTool } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { FadeInUp } from '@/components/ui/motion';
@@ -32,6 +32,27 @@ const services = [
     description:
       'Comprehensive architectural design and planning services to bring your vision to life from concept to blueprint.',
     slug: 'design-planning',
+  },
+  {
+    icon: KeyRound,
+    title: 'Turnkey Project',
+    description:
+      'Complete end-to-end project delivery from concept to keys. We handle everything so you can move in hassle-free.',
+    slug: 'turnkey-project',
+  },
+  {
+    icon: Compass,
+    title: 'Structural Design',
+    description:
+      'Expert structural engineering and design services ensuring safety, stability, and optimal load distribution.',
+    slug: 'structural-design',
+  },
+  {
+    icon: PenTool,
+    title: 'Architectural Design',
+    description:
+      'Creative architectural solutions blending aesthetics with functionality. Unique designs tailored to your vision.',
+    slug: 'architectural-design',
   },
 ];
 
