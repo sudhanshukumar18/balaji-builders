@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Home, Building2, Paintbrush, Ruler, ArrowRight, CheckCircle } from 'lucide-react';
+import { Home, Building2, Paintbrush, Ruler, ArrowRight, CheckCircle, KeyRound, Compass, PenTool } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-construction.jpg';
 import SEOHead from '@/components/SEOHead';
@@ -59,6 +59,45 @@ const services = [
       'Project management',
     ],
     slug: 'design-planning',
+  },
+  {
+    icon: KeyRound,
+    title: 'Turnkey Project',
+    description: 'Complete end-to-end project delivery from concept to keys. We handle everything so you can move in hassle-free.',
+    features: [
+      'Single point of contact for entire project',
+      'Design to completion management',
+      'Quality materials and workmanship',
+      'Timely project delivery',
+      'Post-construction support and warranty',
+    ],
+    slug: 'turnkey-project',
+  },
+  {
+    icon: Compass,
+    title: 'Structural Design',
+    description: 'Expert structural engineering and design services ensuring safety, stability, and optimal load distribution.',
+    features: [
+      'Structural analysis and calculations',
+      'RCC design and detailing',
+      'Steel structure design',
+      'Foundation design optimization',
+      'Seismic and wind load analysis',
+    ],
+    slug: 'structural-design',
+  },
+  {
+    icon: PenTool,
+    title: 'Architectural Design',
+    description: 'Creative architectural solutions blending aesthetics with functionality. Unique designs tailored to your vision.',
+    features: [
+      'Conceptual design and sketching',
+      '3D modeling and visualization',
+      'Building elevation design',
+      'Space planning and layout',
+      'Sustainable design solutions',
+    ],
+    slug: 'architectural-design',
   },
 ];
 
