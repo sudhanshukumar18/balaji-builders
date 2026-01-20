@@ -48,8 +48,8 @@ const About = () => {
   return (
     <main className="min-h-screen">
       <SEOHead
-        title="About Us - 15+ Years Construction Experience"
-        description="Learn about Balaji Design & Constructions, Wardha's trusted builder since 2009. 15+ years experience, 5.0★ rating, quality construction with honest work ethics."
+        title="About Us - 6+ Years Construction Experience"
+        description="Learn about Balaji Design & Constructions, Wardha's trusted builder. 6+ years experience, 5.0★ rating, quality construction with honest work ethics."
         canonical="/about"
       />
       <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'About Us', url: '/about' }]} />
@@ -72,7 +72,7 @@ const About = () => {
               Building Trust Since 2009
             </h1>
             <p className="text-muted-foreground text-lg">
-              For over 15 years, Balaji Design & Constructions has been transforming visions into
+              For over 6 years, Balaji Design & Constructions has been transforming visions into
               reality across Wardha and Maharashtra.
             </p>
           </div>
@@ -104,7 +104,7 @@ const About = () => {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-secondary p-8 text-center border border-border">
-                <p className="font-display text-5xl text-primary mb-2">15+</p>
+                <p className="font-display text-5xl text-primary mb-2">6+</p>
                 <p className="text-muted-foreground text-sm uppercase tracking-wide">Years Experience</p>
               </div>
               <div className="bg-card p-8 text-center border border-border">

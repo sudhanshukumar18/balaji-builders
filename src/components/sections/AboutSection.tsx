@@ -34,7 +34,7 @@ const AboutSection = () => {
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
               Balaji Design & Constructions has been serving Wardha and surrounding areas for over
-              15 years. We specialize in residential and commercial construction, bringing your
+              6 years. We specialize in residential and commercial construction, bringing your
               dreams to life with dedication, expertise, and an unwavering commitment to quality.
             </p>
             <ul className="space-y-4 mb-8">

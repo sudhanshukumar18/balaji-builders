@@ -174,7 +174,7 @@ const HeroSection = () => {
   const headlineWords2 = ['Creating'];
   const {
     displayText
-  } = useTypewriter('Professional construction & design services in Wardha. With 15+ years of experience, we transform your vision into reality with quality craftsmanship and honest work.', 1.0, 30);
+  } = useTypewriter('Professional construction & design services in Wardha. With 6+ years of experience, we transform your vision into reality with quality craftsmanship and honest work.', 1.0, 30);
   return <section ref={sectionRef} className="relative min-h-screen flex overflow-hidden">
       {/* Floating Particles Background */}
       <FloatingParticles />
@@ -549,7 +549,7 @@ const HeroSection = () => {
             duration: 0.6,
             delay: 0.5
           }} className="text-muted-foreground text-base leading-relaxed mb-8">
-              Professional construction & design services in Wardha. With 15+ years of experience,
+              Professional construction & design services in Wardha. With 6+ years of experience,
               we transform your vision into reality.
             </motion.p>
             <motion.div initial={{
@@ -647,7 +647,7 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <p className="font-display text-3xl lg:text-4xl text-primary-foreground">
-                    <Counter to={15} duration={1.5} suffix="+" />
+                    <Counter to={6} duration={1.5} suffix="+" />
                   </p>
                   <p className="text-primary-foreground/80 text-sm">Years Experience</p>
                 </div>

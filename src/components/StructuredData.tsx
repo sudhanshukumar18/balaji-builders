@@ -8,7 +8,7 @@ export const LocalBusinessSchema = () => {
     '@id': 'https://balajidesign.com/#business',
     name: 'Balaji Design & Constructions',
     alternateName: 'Balaji Constructions Wardha',
-    description: 'Professional construction company in Wardha, Maharashtra offering residential and commercial construction, design services with 15+ years of experience.',
+    description: 'Professional construction company in Wardha, Maharashtra offering residential and commercial construction, design services with 6+ years of experience.',
     url: 'https://balajidesign.com',
     telephone: '+918624838652',
     email: 'contact@balajidesign.com',
