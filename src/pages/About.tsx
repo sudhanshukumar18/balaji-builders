@@ -1,11 +1,27 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { CheckCircle, Users, Award, Clock } from 'lucide-react';
+import { CheckCircle, Users, Award, Clock, GraduationCap, Briefcase } from 'lucide-react';
 import heroImage from '@/assets/hero-construction.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
+import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from '@/components/ui/motion';
 
 const About = () => {
+  const founders = [
+    {
+      name: 'Shubham Dadgal',
+      qualifications: ['B.E (Civil Engg.)', 'M.Tech (Structural Engg.)'],
+      experience: '6+ Years Experience',
+      image: null, // Placeholder for photo
+    },
+    {
+      name: 'Prashad Gawande',
+      qualifications: ['B.E (Civil Engg.)'],
+      experience: '6+ Years Experience',
+      image: null, // Placeholder for photo
+    },
+  ];
+
   const values = [
     {
       icon: CheckCircle,
@@ -108,28 +124,90 @@ const About = () => {
         </div>
       </section>
 
+      {/* Founders Section */}
+      <section className="section-padding bg-background">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <FadeInUp className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
+              Meet Our Founders
+            </p>
+            <h2 className="section-title text-foreground">
+              The Visionaries Behind Our Success
+            </h2>
+          </FadeInUp>
+          
+          <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+            {founders.map((founder, index) => (
+              <StaggerItem key={index}>
+                <div className="group relative bg-card border border-border p-8 text-center hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)]">
+                  {/* Photo Placeholder with animated border */}
+                  <div className="relative w-40 h-40 mx-auto mb-6">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-gold to-primary opacity-75 animate-[spin_8s_linear_infinite]" />
+                    <div className="absolute inset-[3px] rounded-full bg-card" />
+                    <div className="absolute inset-[6px] rounded-full bg-secondary flex items-center justify-center overflow-hidden">
+                      {founder.image ? (
+                        <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-charcoal to-secondary">
+                          <span className="font-display text-4xl text-primary">
+                            {founder.name.split(' ').map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Name */}
+                  <h3 className="font-display text-2xl lg:text-3xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                    {founder.name}
+                  </h3>
+                  
+                  {/* Qualifications */}
+                  <div className="space-y-1 mb-4">
+                    {founder.qualifications.map((qual, qIndex) => (
+                      <div key={qIndex} className="flex items-center justify-center gap-2 text-muted-foreground">
+                        <GraduationCap className="w-4 h-4 text-gold" />
+                        <span className="text-sm">{qual}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Experience Badge */}
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+                    <Briefcase className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-medium text-primary">{founder.experience}</span>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
       {/* Values Section */}
       <section className="section-padding bg-secondary">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <FadeInUp className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
               Our Values
             </p>
             <h2 className="section-title text-foreground">
               What Sets Us Apart
             </h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          </FadeInUp>
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="bg-background p-8 shadow-card card-hover">
-                <div className="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6">
-                  <value.icon className="w-7 h-7 text-primary" />
+              <StaggerItem key={index}>
+                <div className="bg-background p-8 shadow-card card-hover h-full">
+                  <div className="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6">
+                    <value.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-display text-2xl text-foreground mb-4">{value.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
                 </div>
-                <h3 className="font-display text-2xl text-foreground mb-4">{value.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
