@@ -175,11 +175,11 @@ const Footer = () => {
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 300 }}>
                 <a
-                  href="mailto:contact@balajidesign.com"
+                  href="mailto:balajidesignandconstruction@gmail.com"
                   className="flex items-start gap-3 text-muted-foreground text-sm hover:text-primary transition-colors"
                 >
                   <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
-                  contact@balajidesign.com
+                  balajidesignandconstruction@gmail.com
                 </a>
               </motion.li>
               <motion.li 
@@ -189,9 +189,9 @@ const Footer = () => {
               >
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
                 <span>
-                  Mhada Colony, Arvi Naka,
+                  Prism Square,
                   <br />
-                  Sindi Meghe, Wardha,
+                  Bachelor Road, Wardha,
                   <br />
                   Maharashtra 442001
                 </span>
