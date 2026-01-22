@@ -83,7 +83,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="w-28 h-28 mx-auto border-2 border-primary/30 rounded-full flex items-center justify-center"
+                className="w-36 h-36 mx-auto border-2 border-primary/30 rounded-full flex items-center justify-center"
               >
                 <motion.img
                   src={logoImage}
@@ -91,7 +91,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
-                  className="w-20 h-20 object-contain"
+                  className="w-28 h-28 object-contain"
                 />
               </motion.div>
             </motion.div>

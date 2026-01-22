@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import logoImage from '@/assets/logo.png';
 
 const Footer = () => {
   const quickLinks = [
@@ -57,13 +58,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <motion.div className="lg:col-span-1" variants={itemVariants}>
-            <Link to="/" className="flex items-center gap-2 mb-6 group">
+            <Link to="/" className="flex items-center gap-3 mb-6 group">
               <motion.div 
-                className="w-10 h-10 bg-primary rounded flex items-center justify-center"
+                className="w-14 h-14 rounded flex items-center justify-center overflow-hidden"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                <span className="font-display text-primary-foreground text-xl font-bold">B</span>
+                <img 
+                  src={logoImage} 
+                  alt="Balaji Design & Constructions Logo" 
+                  className="w-full h-full object-contain"
+                />
               </motion.div>
               <div>
                 <h3 className="font-display text-lg leading-tight group-hover:text-primary transition-colors">Balaji Design</h3>

@@ -177,18 +177,18 @@ const Header = () => {
             transition={{ duration: 0.3 }}
           >
             {/* Logo with gradient border and glow */}
-            <Link to="/" className="flex items-center gap-2 group">
+            <Link to="/" className="flex items-center gap-3 group">
               <motion.div
-                className="relative w-10 h-10 rounded flex items-center justify-center logo-glow shimmer-effect overflow-hidden"
+                className="relative w-14 h-14 rounded flex items-center justify-center logo-glow shimmer-effect overflow-hidden"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
-                animate={{ scale: isScrolled ? 0.9 : 1 }}
+                animate={{ scale: isScrolled ? 0.85 : 1 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
                 <img 
                   src={logoImage} 
                   alt="Balaji Design & Constructions Logo" 
-                  className="w-full h-full object-contain p-1"
+                  className="w-full h-full object-contain"
                 />
               </motion.div>
               <motion.div
