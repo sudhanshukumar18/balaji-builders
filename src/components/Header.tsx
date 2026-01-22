@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Sparkles } from 'lucide-react';
+import { Phone, Sparkles } from 'lucide-react';
+import logoImage from '@/assets/logo.png';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
@@ -184,18 +185,11 @@ const Header = () => {
                 animate={{ scale: isScrolled ? 0.9 : 1 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                {/* Gradient border */}
-                <motion.div
-                  className="absolute inset-0 rounded bg-gradient-to-br from-primary via-gold to-primary"
-                  animate={{
-                    backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                  style={{ backgroundSize: '200% 200%' }}
+                <img 
+                  src={logoImage} 
+                  alt="Balaji Design & Constructions Logo" 
+                  className="w-full h-full object-contain p-1"
                 />
-                <div className="absolute inset-[2px] rounded bg-charcoal flex items-center justify-center">
-                  <span className="font-display text-primary-foreground text-xl font-bold">B</span>
-                </div>
               </motion.div>
               <motion.div
                 className="hidden sm:block"
