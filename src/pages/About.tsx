@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import { CheckCircle, Users, Award, Clock, GraduationCap, Briefcase } from 'lucide-react';
 import heroImage from '@/assets/hero-construction.jpg';
 import founderShubham from '@/assets/founder-shubham.png';
+import founderPrashad from '@/assets/founder-prashad.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from '@/components/ui/motion';
@@ -19,7 +20,7 @@ const About = () => {
       name: 'Prashad Gawande',
       qualifications: ['B.E (Civil Engg.)'],
       experience: '6+ Years Experience',
-      image: null, // Placeholder for photo
+      image: founderPrashad,
     },
   ];
 
