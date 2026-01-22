@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CheckCircle, Users, Award, Clock, GraduationCap, Briefcase } from 'lucide-react';
 import heroImage from '@/assets/hero-construction.jpg';
+import founderShubham from '@/assets/founder-shubham.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from '@/components/ui/motion';
@@ -12,7 +13,7 @@ const About = () => {
       name: 'Shubham Dadgal',
       qualifications: ['B.E (Civil Engg.)', 'M.Tech (Structural Engg.)'],
       experience: '6+ Years Experience',
-      image: null, // Placeholder for photo
+      image: founderShubham,
     },
     {
       name: 'Prashad Gawande',
