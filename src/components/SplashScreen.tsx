@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import logoImage from '@/assets/logo.png';
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -72,7 +73,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-radial from-[hsl(45,80%,55%)]/50 to-transparent rounded-full"
             />
 
-            {/* Construction icon/symbol */}
+            {/* Logo */}
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
@@ -82,15 +83,16 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="w-24 h-24 mx-auto border-2 border-primary/30 rounded-full"
-              />
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="absolute inset-0 flex items-center justify-center"
+                className="w-28 h-28 mx-auto border-2 border-primary/30 rounded-full flex items-center justify-center"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-[hsl(45,80%,55%)] rotate-45" />
+                <motion.img
+                  src={logoImage}
+                  alt="Balaji Design & Constructions Logo"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  className="w-20 h-20 object-contain"
+                />
               </motion.div>
             </motion.div>
 
