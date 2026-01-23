@@ -539,24 +539,16 @@ const HeroSection = () => {
               <br />
               Creating <span className="text-primary">Landmarks</span>
             </motion.h1>
-            <motion.p 
-              initial={{
-                opacity: 0,
-                y: 20
-              }} 
-              animate={{
-                opacity: 1,
-                y: 0
-              }} 
-              style={{
-                y: useTransform(scrollYProgress, [0, 0.5], [0, 80])
-              }}
-              transition={{
-                duration: 0.6,
-                delay: 0.5
-              }} 
-              className="text-muted-foreground text-base leading-relaxed mb-8"
-            >
+            <motion.p initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.5
+          }} className="text-muted-foreground text-base leading-relaxed mb-8">
               Professional construction & design services in Wardha. With 6+ years of experience,
               we transform your vision into reality.
             </motion.p>
