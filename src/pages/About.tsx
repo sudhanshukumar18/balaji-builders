@@ -141,14 +141,19 @@ const About = () => {
           <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
             {founders.map((founder, index) => (
               <StaggerItem key={index}>
-                <div className="group relative bg-card border border-border p-8 text-center hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)]">
-                  {/* Photo Placeholder with animated border */}
-                  <div className="relative w-40 h-40 mx-auto mb-6">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-gold to-primary opacity-75 animate-[spin_8s_linear_infinite]" />
-                    <div className="absolute inset-[3px] rounded-full bg-card" />
-                    <div className="absolute inset-[6px] rounded-full bg-secondary flex items-center justify-center overflow-hidden">
+                <div className="group relative bg-gradient-to-b from-card to-secondary/50 border border-border/50 p-10 text-center transition-all duration-500 hover:border-primary/30 hover:shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.2)]">
+                  {/* Subtle corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-primary/40" />
+                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/40" />
+                  
+                  {/* Photo with elegant border */}
+                  <div className="relative w-36 h-36 mx-auto mb-8">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-gold/30 p-[2px]">
+                      <div className="w-full h-full rounded-full bg-card" />
+                    </div>
+                    <div className="absolute inset-[4px] rounded-full overflow-hidden border-2 border-primary/20">
                       {founder.image ? (
-                        <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
+                        <img src={founder.image} alt={founder.name} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-charcoal to-secondary">
                           <span className="font-display text-4xl text-primary">
@@ -160,24 +165,27 @@ const About = () => {
                   </div>
                   
                   {/* Name */}
-                  <h3 className="font-display text-2xl lg:text-3xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-2xl lg:text-3xl text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                     {founder.name}
                   </h3>
                   
+                  {/* Divider */}
+                  <div className="w-12 h-[2px] bg-primary/50 mx-auto mb-5" />
+                  
                   {/* Qualifications */}
-                  <div className="space-y-1 mb-4">
+                  <div className="space-y-2 mb-6">
                     {founder.qualifications.map((qual, qIndex) => (
-                      <div key={qIndex} className="flex items-center justify-center gap-2 text-muted-foreground">
-                        <GraduationCap className="w-4 h-4 text-gold" />
-                        <span className="text-sm">{qual}</span>
+                      <div key={qIndex} className="flex items-center justify-center gap-2.5 text-muted-foreground">
+                        <GraduationCap className="w-4 h-4 text-gold/80" />
+                        <span className="text-sm tracking-wide">{qual}</span>
                       </div>
                     ))}
                   </div>
                   
                   {/* Experience Badge */}
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
-                    <Briefcase className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-medium text-primary">{founder.experience}</span>
+                  <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-primary/5 border border-primary/15">
+                    <Briefcase className="w-4 h-4 text-primary/80" />
+                    <span className="text-sm font-medium text-primary tracking-wide">{founder.experience}</span>
                   </div>
                 </div>
               </StaggerItem>
