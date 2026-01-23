@@ -6,7 +6,8 @@ import founderShubham from '@/assets/founder-shubham.png';
 import founderPrashad from '@/assets/founder-prashad.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
-import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from '@/components/ui/motion';
+import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn, Counter } from '@/components/ui/motion';
+import { VelocityText } from '@/components/ui/scroll-velocity';
 
 const About = () => {
   const founders = [
@@ -81,49 +82,77 @@ const About = () => {
         </div>
       </section>
 
+      {/* Scroll Velocity Text Marquee */}
+      <section className="py-8 bg-charcoal border-y border-border/30 overflow-hidden">
+        <VelocityText 
+          text="Quality Construction" 
+          baseVelocity={3}
+          textClassName="text-foreground/10"
+          separator={<span className="mx-12 text-primary/30">★</span>}
+        />
+      </section>
+
       {/* Story Section */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <h2 className="section-title text-foreground mb-6">Our Story</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  Balaji Design & Constructions was founded in 2019 with a simple mission: to provide
-                  honest, quality construction services to the people of Wardha and surrounding areas.
-                </p>
-                <p>
-                  What started as a small local construction firm has grown into a trusted name in the
-                  industry, known for our commitment to excellence, transparent business practices, and
-                  personalized service.
-                </p>
-                <p>
-                  Our team of experienced architects, engineers, and craftsmen work together to deliver
-                  projects that exceed expectations. From residential homes to commercial buildings, every
-                  project receives the same level of dedication and attention to detail.
-                </p>
+          <FadeInUp>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <h2 className="section-title text-foreground mb-6">Our Story</h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    Balaji Design & Constructions was founded in 2019 with a simple mission: to provide
+                    honest, quality construction services to the people of Wardha and surrounding areas.
+                  </p>
+                  <p>
+                    What started as a small local construction firm has grown into a trusted name in the
+                    industry, known for our commitment to excellence, transparent business practices, and
+                    personalized service.
+                  </p>
+                  <p>
+                    Our team of experienced architects, engineers, and craftsmen work together to deliver
+                    projects that exceed expectations. From residential homes to commercial buildings, every
+                    project receives the same level of dedication and attention to detail.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="group bg-secondary p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-5xl text-primary mb-2">
+                    <Counter from={0} to={6} duration={2} suffix="+" />
+                  </p>
+                  <p className="text-muted-foreground text-sm uppercase tracking-wide">Years Experience</p>
+                </div>
+                <div className="group bg-card p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-5xl text-primary mb-2">5.0</p>
+                  <p className="text-muted-foreground text-sm uppercase tracking-wide">Google Rating</p>
+                </div>
+                <div className="group bg-card p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-5xl text-primary mb-2">
+                    <Counter from={0} to={6} duration={2} suffix="+" />
+                  </p>
+                  <p className="text-muted-foreground text-sm uppercase tracking-wide">Happy Clients</p>
+                </div>
+                <div className="group bg-secondary p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-5xl text-primary mb-2">
+                    <Counter from={0} to={100} duration={2.5} suffix="%" />
+                  </p>
+                  <p className="text-muted-foreground text-sm uppercase tracking-wide">Satisfaction</p>
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-secondary p-8 text-center border border-border">
-                <p className="font-display text-5xl text-primary mb-2">6+</p>
-                <p className="text-muted-foreground text-sm uppercase tracking-wide">Years Experience</p>
-              </div>
-              <div className="bg-card p-8 text-center border border-border">
-                <p className="font-display text-5xl text-primary mb-2">5.0</p>
-                <p className="text-muted-foreground text-sm uppercase tracking-wide">Google Rating</p>
-              </div>
-              <div className="bg-card p-8 text-center border border-border">
-                <p className="font-display text-5xl text-primary mb-2">6+</p>
-                <p className="text-muted-foreground text-sm uppercase tracking-wide">Happy Clients</p>
-              </div>
-              <div className="bg-secondary p-8 text-center border border-border">
-                <p className="font-display text-5xl text-primary mb-2">100%</p>
-                <p className="text-muted-foreground text-sm uppercase tracking-wide">Satisfaction</p>
-              </div>
-            </div>
-          </div>
+          </FadeInUp>
         </div>
+      </section>
+
+      {/* Second Velocity Marquee - Opposite Direction */}
+      <section className="py-6 bg-primary/5 border-y border-primary/10 overflow-hidden">
+        <VelocityText 
+          text="Trusted Builder Since 2019" 
+          baseVelocity={-2}
+          textClassName="text-primary/20"
+          separator={<span className="mx-10 text-gold/40">◆</span>}
+        />
       </section>
 
       {/* Founders Section */}
