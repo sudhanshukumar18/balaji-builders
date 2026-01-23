@@ -8,6 +8,7 @@ import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn, Counter } from '@/components/ui/motion';
 import { VelocityText } from '@/components/ui/scroll-velocity';
+import { ScrollBlurReveal } from '@/components/ui/scroll-blur-reveal';
 
 const About = () => {
   const founders = [
@@ -92,56 +93,52 @@ const About = () => {
         />
       </section>
 
-      {/* Story Section */}
-      <section className="section-padding bg-background">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <FadeInUp>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div>
-                <h2 className="section-title text-foreground mb-6">Our Story</h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    Balaji Design & Constructions was founded in 2019 with a simple mission: to provide
-                    honest, quality construction services to the people of Wardha and surrounding areas.
-                  </p>
-                  <p>
-                    What started as a small local construction firm has grown into a trusted name in the
-                    industry, known for our commitment to excellence, transparent business practices, and
-                    personalized service.
-                  </p>
-                  <p>
-                    Our team of experienced architects, engineers, and craftsmen work together to deliver
-                    projects that exceed expectations. From residential homes to commercial buildings, every
-                    project receives the same level of dedication and attention to detail.
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="group bg-secondary p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-                  <p className="font-display text-5xl text-primary mb-2">
+      {/* Story Section with Scroll Blur Reveal */}
+      <section className="min-h-[120vh] bg-background relative">
+        <div className="sticky top-0 min-h-screen flex items-center">
+          <div className="container mx-auto px-4 md:px-6 lg:px-8 py-20">
+            <div className="max-w-5xl mx-auto">
+              <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-8 text-center">
+                Our Story
+              </p>
+              
+              <ScrollBlurReveal 
+                text="Balaji Design & Constructions was founded in 2019 with a simple mission: to provide honest, quality construction services to the people of Wardha. What started as a small local firm has grown into a trusted name known for excellence, transparency, and personalized service."
+                className="text-foreground max-w-4xl mx-auto mb-16"
+                fontSize="clamp(1.5rem, 4vw, 2.75rem)"
+                lineHeight={1.5}
+                fullRevealDistance={600}
+                initialBlur={5}
+                initialOpacity={0.1}
+              />
+              
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12">
+                <div className="group bg-secondary/50 p-6 md:p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-4xl md:text-5xl text-primary mb-2">
                     <Counter from={0} to={6} duration={2} suffix="+" />
                   </p>
-                  <p className="text-muted-foreground text-sm uppercase tracking-wide">Years Experience</p>
+                  <p className="text-muted-foreground text-xs md:text-sm uppercase tracking-wide">Years</p>
                 </div>
-                <div className="group bg-card p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-                  <p className="font-display text-5xl text-primary mb-2">5.0</p>
-                  <p className="text-muted-foreground text-sm uppercase tracking-wide">Google Rating</p>
+                <div className="group bg-card/50 p-6 md:p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-4xl md:text-5xl text-primary mb-2">5.0</p>
+                  <p className="text-muted-foreground text-xs md:text-sm uppercase tracking-wide">Rating</p>
                 </div>
-                <div className="group bg-card p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-                  <p className="font-display text-5xl text-primary mb-2">
+                <div className="group bg-card/50 p-6 md:p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-4xl md:text-5xl text-primary mb-2">
                     <Counter from={0} to={6} duration={2} suffix="+" />
                   </p>
-                  <p className="text-muted-foreground text-sm uppercase tracking-wide">Happy Clients</p>
+                  <p className="text-muted-foreground text-xs md:text-sm uppercase tracking-wide">Clients</p>
                 </div>
-                <div className="group bg-secondary p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-                  <p className="font-display text-5xl text-primary mb-2">
+                <div className="group bg-secondary/50 p-6 md:p-8 text-center border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-4xl md:text-5xl text-primary mb-2">
                     <Counter from={0} to={100} duration={2.5} suffix="%" />
                   </p>
-                  <p className="text-muted-foreground text-sm uppercase tracking-wide">Satisfaction</p>
+                  <p className="text-muted-foreground text-xs md:text-sm uppercase tracking-wide">Satisfaction</p>
                 </div>
               </div>
             </div>
-          </FadeInUp>
+          </div>
         </div>
       </section>
 
