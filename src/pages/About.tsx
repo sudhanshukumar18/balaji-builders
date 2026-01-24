@@ -167,55 +167,60 @@ const About = () => {
             </h2>
           </FadeInUp>
           
-          <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+          <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
             {founders.map((founder, index) => (
               <StaggerItem key={index}>
-                <div className="group relative bg-gradient-to-b from-card to-secondary/50 border border-border/50 p-10 text-center transition-all duration-500 hover:border-primary/30 hover:shadow-[0_20px_50px_-20px_hsl(var(--primary)/0.2)]">
-                  {/* Subtle corner accents */}
-                  <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-primary/40" />
-                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/40" />
-                  
-                  {/* Photo with elegant border */}
-                  <div className="relative w-36 h-36 mx-auto mb-8">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-gold/30 p-[2px]">
-                      <div className="w-full h-full rounded-full bg-card" />
-                    </div>
-                    <div className="absolute inset-[4px] rounded-full overflow-hidden border-2 border-primary/20">
-                      {founder.image ? (
-                        <img src={founder.image} alt={founder.name} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-charcoal to-secondary">
-                          <span className="font-display text-4xl text-primary">
-                            {founder.name.split(' ').map(n => n[0]).join('')}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  
-                  {/* Name */}
-                  <h3 className="font-display text-2xl lg:text-3xl text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
-                    {founder.name}
-                  </h3>
-                  
-                  {/* Divider */}
-                  <div className="w-12 h-[2px] bg-primary/50 mx-auto mb-5" />
-                  
-                  {/* Qualifications */}
-                  <div className="space-y-2 mb-6">
-                    {founder.qualifications.map((qual, qIndex) => (
-                      <div key={qIndex} className="flex items-center justify-center gap-2.5 text-muted-foreground">
-                        <GraduationCap className="w-4 h-4 text-gold/80" />
-                        <span className="text-sm tracking-wide">{qual}</span>
+                <div className="group relative bg-card/80 backdrop-blur-sm border border-border/50 overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[0_25px_60px_-15px_hsl(var(--primary)/0.25)] hover:-translate-y-2">
+                  {/* Photo Section */}
+                  <div className="relative h-72 overflow-hidden">
+                    {founder.image ? (
+                      <img 
+                        src={founder.image} 
+                        alt={founder.name} 
+                        className="w-full h-full object-cover object-top grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-charcoal to-secondary">
+                        <span className="font-display text-6xl text-primary">
+                          {founder.name.split(' ').map(n => n[0]).join('')}
+                        </span>
                       </div>
-                    ))}
+                    )}
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                    
+                    {/* Experience badge floating */}
+                    <div className="absolute top-4 right-4 px-4 py-2 bg-primary/90 backdrop-blur-sm">
+                      <span className="text-xs font-bold text-primary-foreground tracking-wider uppercase">{founder.experience}</span>
+                    </div>
                   </div>
                   
-                  {/* Experience Badge */}
-                  <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-primary/5 border border-primary/15">
-                    <Briefcase className="w-4 h-4 text-primary/80" />
-                    <span className="text-sm font-medium text-primary tracking-wide">{founder.experience}</span>
+                  {/* Content Section */}
+                  <div className="p-8 pt-6">
+                    {/* Role */}
+                    <p className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-2">Co-Founder</p>
+                    
+                    {/* Name */}
+                    <h3 className="font-display text-3xl lg:text-4xl text-foreground mb-5 group-hover:text-primary transition-colors duration-300">
+                      {founder.name}
+                    </h3>
+                    
+                    {/* Qualifications as pills */}
+                    <div className="flex flex-wrap gap-2">
+                      {founder.qualifications.map((qual, qIndex) => (
+                        <div 
+                          key={qIndex} 
+                          className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary/80 border border-border/50 rounded-sm"
+                        >
+                          <GraduationCap className="w-3.5 h-3.5 text-primary" />
+                          <span className="text-xs text-muted-foreground tracking-wide">{qual}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
+                  
+                  {/* Bottom accent line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-gold to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </StaggerItem>
             ))}
