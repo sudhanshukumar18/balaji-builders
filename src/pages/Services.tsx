@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-construction.jpg';
 import serviceResidential from '@/assets/service-residential.png';
 import serviceCommercial from '@/assets/service-commercial.png';
+import serviceArchitectural from '@/assets/service-architectural.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/StructuredData';
 interface Service {
@@ -63,7 +64,8 @@ const services: Service[] = [{
   title: 'Architectural Design',
   description: 'Creative architectural solutions blending aesthetics with functionality. Unique designs tailored to your vision.',
   features: ['Conceptual design and sketching', '3D modeling and visualization', 'Building elevation design', 'Space planning and layout', 'Sustainable design solutions'],
-  slug: 'architectural-design'
+  slug: 'architectural-design',
+  image: serviceArchitectural
 }];
 const Services = () => {
   return <main className="min-h-screen">
