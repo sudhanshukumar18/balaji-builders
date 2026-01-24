@@ -131,10 +131,24 @@ const Services = () => {
                     </Link>
                   </Button>
                 </div>
-                <div className={`relative overflow-hidden rounded-lg aspect-[4/3] lg:aspect-square ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  {service.video ? <video src={service.video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" /> : service.image ? <img src={service.image} alt={service.title} className="w-full h-full object-center transition-transform duration-500 hover:scale-105 object-contain" /> : <div className="bg-secondary w-full h-full flex items-center justify-center">
+                <div className={`group relative overflow-hidden rounded-lg aspect-[4/3] lg:aspect-square ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  {service.video ? (
+                    <video src={service.video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
+                  ) : service.image ? (
+                    <>
+                      <img src={service.image} alt={service.title} className="w-full h-full object-center transition-transform duration-500 group-hover:scale-105 object-contain" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
+                        <div className="flex items-center gap-3 text-accent-foreground">
+                          <service.icon className="w-8 h-8 text-primary" />
+                          <span className="font-display text-xl">{service.title}</span>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="bg-secondary w-full h-full flex items-center justify-center">
                       <service.icon className="w-32 h-32 text-primary/20" />
-                    </div>}
+                    </div>
+                  )}
                 </div>
               </div>)}
           </div>
