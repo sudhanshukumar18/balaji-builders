@@ -5,6 +5,7 @@ import { Home, Building2, Paintbrush, Ruler, ArrowRight, CheckCircle, KeyRound, 
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-construction.jpg';
 import serviceResidential from '@/assets/service-residential.png';
+import serviceCommercial from '@/assets/service-commercial.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/StructuredData';
 const services = [{
@@ -19,7 +20,8 @@ const services = [{
   title: 'Commercial Construction',
   description: 'Office buildings, retail spaces, and commercial complexes.',
   features: ['Office building construction', 'Retail and shopping spaces', 'Industrial facilities', 'Warehouse construction', 'Commercial renovations'],
-  slug: 'commercial-construction'
+  slug: 'commercial-construction',
+  image: serviceCommercial
 }, {
   icon: Paintbrush,
   title: 'Interior Design',
