@@ -172,12 +172,12 @@ const Services = () => {
                     </Link>
                   </Button>
                 </div>
-<div className={`relative overflow-hidden aspect-square ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+<div className={`relative overflow-hidden rounded-lg aspect-[4/3] lg:aspect-square ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   {service.image ? (
                     <img 
                       src={service.image} 
                       alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                     />
                   ) : (
                     <div className="bg-secondary w-full h-full flex items-center justify-center">
