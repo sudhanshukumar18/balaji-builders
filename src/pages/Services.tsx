@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Home, Building2, Paintbrush, Ruler, ArrowRight, CheckCircle, KeyRound, Compass, PenTool } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-construction.jpg';
+import serviceResidential from '@/assets/service-residential.png';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema, ServiceSchema } from '@/components/StructuredData';
 
@@ -20,6 +21,7 @@ const services = [
       'Foundation and structural work',
     ],
     slug: 'residential-construction',
+    image: serviceResidential,
   },
   {
     icon: Building2,
@@ -170,8 +172,18 @@ const Services = () => {
                     </Link>
                   </Button>
                 </div>
-                <div className={`bg-secondary aspect-square flex items-center justify-center ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <service.icon className="w-32 h-32 text-primary/20" />
+<div className={`relative overflow-hidden aspect-square ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  {service.image ? (
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  ) : (
+                    <div className="bg-secondary w-full h-full flex items-center justify-center">
+                      <service.icon className="w-32 h-32 text-primary/20" />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
