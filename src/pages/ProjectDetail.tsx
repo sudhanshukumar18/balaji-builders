@@ -38,6 +38,7 @@ const projectsData: Record<string, {
       'Landscaped garden with pool',
       'Energy-efficient systems',
     ],
+    pdf: '/pdfs/shubham-portfolio.pdf',
   },
   'wardha-business-center': {
     title: 'Wardha Business Center',
