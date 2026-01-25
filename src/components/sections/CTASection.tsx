@@ -17,7 +17,7 @@ const CTASection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3]);
 
   return (
-    <section ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
       {/* Background Image with Parallax */}
       <motion.div
         style={{ y: backgroundY }}
@@ -65,7 +65,7 @@ const CTASection = () => {
           
           <FadeInUp delay={0.1}>
             <motion.h2 
-              className="font-display text-4xl md:text-5xl lg:text-6xl text-accent-foreground mb-6"
+              className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-accent-foreground mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -76,7 +76,7 @@ const CTASection = () => {
           </FadeInUp>
           
           <FadeInUp delay={0.2}>
-            <p className="text-muted-foreground text-lg mb-10">
+            <p className="text-muted-foreground text-base sm:text-lg mb-8 sm:mb-10 px-4 sm:px-0">
               Whether you're planning a new home, commercial space, or renovation project, we're here
               to help. Contact us today for a free consultation and quote.
             </p>

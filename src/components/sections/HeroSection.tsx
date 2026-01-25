@@ -596,60 +596,60 @@ const HeroSection = () => {
           ease: 'linear'
         }} />
           
-          <div className="bg-primary/95 backdrop-blur-sm py-6 px-6 lg:px-12">
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 lg:gap-16">
-              <motion.div className="text-center lg:text-left flex items-center gap-3" whileHover={{
+          <div className="bg-primary/95 backdrop-blur-sm py-4 sm:py-6 px-4 sm:px-6 lg:px-12">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-8 lg:gap-16">
+              <motion.div className="text-center flex items-center gap-2 sm:gap-3" whileHover={{
               scale: 1.05
             }} transition={{
               type: 'spring',
               stiffness: 300
             }}>
-                <div className="hidden lg:flex w-10 h-10 items-center justify-center bg-primary-foreground/10 rounded-full">
-                  <Star className="w-5 h-5 text-primary-foreground" />
+                <div className="flex w-8 h-8 sm:w-10 sm:h-10 items-center justify-center bg-primary-foreground/10 rounded-full">
+                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
                 </div>
-                <div>
-                  <p className="font-display text-3xl lg:text-4xl text-primary-foreground">
+                <div className="text-left">
+                  <p className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary-foreground">
                     <Counter to={5} duration={1.5} suffix=".0" />
                   </p>
-                  <p className="text-primary-foreground/80 text-sm">Google Rating</p>
+                  <p className="text-primary-foreground/80 text-xs sm:text-sm">Google Rating</p>
                 </div>
               </motion.div>
               
-              <div className="hidden lg:block w-px bg-primary-foreground/20 self-stretch" />
+              <div className="hidden sm:block w-px bg-primary-foreground/20 self-stretch" />
               
-              <motion.div className="text-center lg:text-left flex items-center gap-3" whileHover={{
+              <motion.div className="text-center flex items-center gap-2 sm:gap-3" whileHover={{
               scale: 1.05
             }} transition={{
               type: 'spring',
               stiffness: 300
             }}>
-                <div className="hidden lg:flex w-10 h-10 items-center justify-center bg-primary-foreground/10 rounded-full">
-                  <Users className="w-5 h-5 text-primary-foreground" />
+                <div className="flex w-8 h-8 sm:w-10 sm:h-10 items-center justify-center bg-primary-foreground/10 rounded-full">
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
                 </div>
-                <div>
-                  <p className="font-display text-3xl lg:text-4xl text-primary-foreground">
+                <div className="text-left">
+                  <p className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary-foreground">
                     <Counter to={30} duration={1.5} suffix="+" />
                   </p>
-                  <p className="text-primary-foreground/80 text-sm">Happy Clients</p>
+                  <p className="text-primary-foreground/80 text-xs sm:text-sm">Happy Clients</p>
                 </div>
               </motion.div>
               
-              <div className="hidden lg:block w-px bg-primary-foreground/20 self-stretch" />
+              <div className="hidden sm:block w-px bg-primary-foreground/20 self-stretch" />
               
-              <motion.div className="text-center lg:text-left flex items-center gap-3" whileHover={{
+              <motion.div className="text-center flex items-center gap-2 sm:gap-3" whileHover={{
               scale: 1.05
             }} transition={{
               type: 'spring',
               stiffness: 300
             }}>
-                <div className="hidden lg:flex w-10 h-10 items-center justify-center bg-primary-foreground/10 rounded-full">
-                  <Clock className="w-5 h-5 text-primary-foreground" />
+                <div className="flex w-8 h-8 sm:w-10 sm:h-10 items-center justify-center bg-primary-foreground/10 rounded-full">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
                 </div>
-                <div>
-                  <p className="font-display text-3xl lg:text-4xl text-primary-foreground">
+                <div className="text-left">
+                  <p className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary-foreground">
                     <Counter to={6} duration={1.5} suffix="+" />
                   </p>
-                  <p className="text-primary-foreground/80 text-sm">Years Experience</p>
+                  <p className="text-primary-foreground/80 text-xs sm:text-sm">Years Experience</p>
                 </div>
               </motion.div>
             </div>

@@ -112,43 +112,43 @@ const Services = () => {
       {/* Services List */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="space-y-16">
-            {services.map((service, index) => <div key={service.slug} id={service.slug} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="w-16 h-16 rounded bg-primary/10 flex items-center justify-center mb-6">
-                    <service.icon className="w-8 h-8 text-primary" />
+          <div className="space-y-12 sm:space-y-16">
+            {services.map((service, index) => <div key={service.slug} id={service.slug} className={`grid md:grid-cols-2 gap-8 sm:gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                <div className={index % 2 === 1 ? 'md:order-2' : ''}>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded bg-primary/10 flex items-center justify-center mb-4 sm:mb-6">
+                    <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                   </div>
-                  <h2 className="font-display text-4xl text-foreground mb-4">{service.title}</h2>
-                  <p className="text-muted-foreground text-lg mb-6">{service.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {service.features.map((feature, i) => <li key={i} className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="text-foreground">{feature}</span>
+                  <h2 className="font-display text-3xl sm:text-4xl text-foreground mb-3 sm:mb-4">{service.title}</h2>
+                  <p className="text-muted-foreground text-base sm:text-lg mb-4 sm:mb-6">{service.description}</p>
+                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                    {service.features.map((feature, i) => <li key={i} className="flex items-start gap-2 sm:gap-3">
+                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm sm:text-base text-foreground">{feature}</span>
                       </li>)}
                   </ul>
-                  <Button asChild className="btn-primary rounded-none group">
+                  <Button asChild className="btn-primary rounded-none group w-full sm:w-auto">
                     <Link to="/contact">
                       Get a Quote
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
                 </div>
-                <div className={`group relative overflow-hidden rounded-lg aspect-[4/3] lg:aspect-square ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className={`group relative overflow-hidden rounded-lg aspect-video sm:aspect-[4/3] lg:aspect-square ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   {service.video ? (
                     <video src={service.video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
                   ) : service.image ? (
                     <>
                       <img src={service.image} alt={service.title} className="w-full h-full object-center transition-transform duration-500 group-hover:scale-105 object-contain" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
-                        <div className="flex items-center gap-3 text-accent-foreground">
-                          <service.icon className="w-8 h-8 text-primary" />
-                          <span className="font-display text-xl">{service.title}</span>
+                      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 sm:pb-8">
+                        <div className="flex items-center gap-2 sm:gap-3 text-accent-foreground">
+                          <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+                          <span className="font-display text-lg sm:text-xl">{service.title}</span>
                         </div>
                       </div>
                     </>
                   ) : (
                     <div className="bg-secondary w-full h-full flex items-center justify-center">
-                      <service.icon className="w-32 h-32 text-primary/20" />
+                      <service.icon className="w-24 h-24 sm:w-32 sm:h-32 text-primary/20" />
                     </div>
                   )}
                 </div>

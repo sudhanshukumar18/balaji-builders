@@ -66,7 +66,7 @@ const ProjectsSection = () => {
         </FadeInUp>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -77,7 +77,7 @@ const ProjectsSection = () => {
             >
               <Link
                 to={`/projects/${project.slug}`}
-                className="group relative overflow-hidden bg-muted aspect-[4/3] block"
+                className="group relative overflow-hidden bg-muted aspect-[4/3] block touch-manipulation"
               >
                 <motion.div 
                   className="absolute inset-0"
@@ -98,18 +98,18 @@ const ProjectsSection = () => {
                   transition={{ duration: 0.3 }}
                 />
                 
-                <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
                   <motion.p 
-                    className="text-primary text-sm uppercase tracking-wider mb-2"
+                    className="text-primary text-xs sm:text-sm uppercase tracking-wider mb-1 sm:mb-2"
                     initial={{ y: 10, opacity: 0.8 }}
                     whileHover={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.3 }}
                   >
                     {project.category}
                   </motion.p>
-                  <div className="flex items-end justify-between">
+                  <div className="flex items-end justify-between gap-2">
                     <motion.h3 
-                      className="font-display text-2xl lg:text-3xl text-accent-foreground"
+                      className="font-display text-xl sm:text-2xl lg:text-3xl text-accent-foreground"
                       initial={{ y: 10 }}
                       whileHover={{ y: 0 }}
                       transition={{ duration: 0.3 }}
@@ -117,7 +117,7 @@ const ProjectsSection = () => {
                       {project.title}
                     </motion.h3>
                     <motion.div 
-                      className="w-10 h-10 rounded-full border border-accent-foreground/30 flex items-center justify-center"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-accent-foreground/30 flex items-center justify-center flex-shrink-0"
                       whileHover={{ 
                         scale: 1.1, 
                         backgroundColor: 'hsl(var(--primary))',
@@ -125,7 +125,7 @@ const ProjectsSection = () => {
                       }}
                       transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     >
-                      <ArrowUpRight className="w-4 h-4 text-accent-foreground" />
+                      <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 text-accent-foreground" />
                     </motion.div>
                   </div>
                 </div>

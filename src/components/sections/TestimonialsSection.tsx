@@ -116,7 +116,7 @@ const TestimonialsSection = () => {
             </p>
             
             {/* Progress dots */}
-            <div className="flex gap-2 mt-8">
+            <div className="flex gap-2 mt-6 sm:mt-8">
               {testimonials.map((_, index) => (
                 <motion.button
                   key={index}
@@ -124,8 +124,8 @@ const TestimonialsSection = () => {
                     setDirection(index > currentIndex ? 1 : -1);
                     setCurrentIndex(index);
                   }}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? 'w-8 bg-primary' : 'w-2 bg-border hover:bg-primary/50'
+                  className={`h-2.5 sm:h-2 rounded-full transition-all duration-300 min-w-[10px] ${
+                    index === currentIndex ? 'w-8 sm:w-8 bg-primary' : 'w-2.5 sm:w-2 bg-border hover:bg-primary/50'
                   }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
@@ -137,7 +137,7 @@ const TestimonialsSection = () => {
           {/* Right Testimonial Card */}
           <FadeInRight className="relative">
             <motion.div 
-              className="bg-background p-8 lg:p-12 shadow-elevated relative overflow-hidden"
+              className="bg-background p-6 sm:p-8 lg:p-12 shadow-elevated relative overflow-hidden"
               whileHover={{ y: -5, boxShadow: 'var(--shadow-elevated)' }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
@@ -176,24 +176,24 @@ const TestimonialsSection = () => {
                     exit="exit"
                     transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <p className="text-foreground text-lg lg:text-xl leading-relaxed mb-8">
+                    <p className="text-foreground text-base sm:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-8">
                       "{testimonials[currentIndex].quote}"
                     </p>
                     <div>
-                      <p className="font-display text-xl text-foreground">
+                      <p className="font-display text-lg sm:text-xl text-foreground">
                         {testimonials[currentIndex].name}
                       </p>
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         {testimonials[currentIndex].title}
                       </p>
                     </div>
                   </motion.div>
                 </AnimatePresence>
                 
-                <div className="flex gap-2 mt-8">
+                <div className="flex gap-2 mt-6 sm:mt-8">
                   <motion.button
                     onClick={prevTestimonial}
-                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors"
+                    className="w-10 h-10 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors min-w-[44px] min-h-[44px]"
                     aria-label="Previous testimonial"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -202,7 +202,7 @@ const TestimonialsSection = () => {
                   </motion.button>
                   <motion.button
                     onClick={nextTestimonial}
-                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors"
+                    className="w-10 h-10 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors min-w-[44px] min-h-[44px]"
                     aria-label="Next testimonial"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}

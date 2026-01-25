@@ -82,7 +82,7 @@ const AboutSection = () => {
           </FadeInLeft>
 
           {/* Right Stats Cards */}
-          <StaggerContainer className="grid grid-cols-2 gap-4 lg:gap-6">
+          <StaggerContainer className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6 mt-8 lg:mt-0">
             <motion.div initial={{
             opacity: 0,
             y: 50,
@@ -98,13 +98,13 @@ const AboutSection = () => {
             ease: 'easeOut'
           }} whileHover={{
             y: -10
-          }} className="bg-background p-6 lg:p-8 shadow-card">
-              <p className="font-display text-5xl lg:text-6xl text-primary mb-2">
+          }} className="bg-background p-4 sm:p-6 lg:p-8 shadow-card">
+              <p className="font-display text-4xl sm:text-5xl lg:text-6xl text-primary mb-2">
                 <Counter to={5} duration={2} suffix=".0" />
               </p>
-              <p className="text-muted-foreground text-sm uppercase tracking-wide">Google Rating</p>
-              <div className="flex gap-1 mt-3">
-                {[...Array(5)].map((_, i) => <motion.svg key={i} className="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20" initial={{
+              <p className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wide">Google Rating</p>
+              <div className="flex gap-1 mt-2 sm:mt-3">
+                {[...Array(5)].map((_, i) => <motion.svg key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-gold fill-current" viewBox="0 0 20 20" initial={{
                 scale: 0,
                 rotate: -180
               }} whileInView={{
@@ -138,12 +138,12 @@ const AboutSection = () => {
             ease: 'easeOut'
           }} whileHover={{
             y: -10
-          }} className="bg-charcoal p-6 lg:p-8 shadow-card mt-8">
-              <p className="font-display text-5xl lg:text-6xl text-primary mb-2">
+          }} className="bg-charcoal p-4 sm:p-6 lg:p-8 shadow-card lg:mt-8">
+              <p className="font-display text-4xl sm:text-5xl lg:text-6xl text-primary mb-2">
                 <Counter to={30} duration={2} suffix="+" />
               </p>
-              <p className="text-muted-foreground text-sm uppercase tracking-wide">Satisfied Clients</p>
-              <p className="text-accent-foreground/70 text-sm mt-3">& Growing</p>
+              <p className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wide">Satisfied Clients</p>
+              <p className="text-accent-foreground/70 text-xs sm:text-sm mt-2 sm:mt-3">& Growing</p>
             </motion.div>
             
             <motion.div initial={{
@@ -162,12 +162,12 @@ const AboutSection = () => {
             ease: 'easeOut'
           }} whileHover={{
             y: -10
-          }} className="bg-charcoal p-6 lg:p-8 shadow-card -mt-8">
-              <p className="font-display text-5xl lg:text-6xl text-primary mb-2">
+          }} className="bg-charcoal p-4 sm:p-6 lg:p-8 shadow-card lg:-mt-8">
+              <p className="font-display text-4xl sm:text-5xl lg:text-6xl text-primary mb-2">
                 <Counter to={15} duration={2} suffix="+" />
               </p>
-              <p className="text-muted-foreground text-sm uppercase tracking-wide">Years Experience</p>
-              <p className="text-accent-foreground/70 text-sm mt-3">Since 2019</p>
+              <p className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wide">Years Experience</p>
+              <p className="text-accent-foreground/70 text-xs sm:text-sm mt-2 sm:mt-3">Since 2019</p>
             </motion.div>
             
             <motion.div initial={{
@@ -186,12 +186,12 @@ const AboutSection = () => {
             ease: 'easeOut'
           }} whileHover={{
             y: -10
-          }} className="bg-background p-6 lg:p-8 shadow-card">
-              <p className="font-display text-5xl lg:text-6xl text-primary mb-2">
+          }} className="bg-background p-4 sm:p-6 lg:p-8 shadow-card">
+              <p className="font-display text-4xl sm:text-5xl lg:text-6xl text-primary mb-2">
                 <Counter to={100} duration={2} suffix="%" />
               </p>
-              <p className="text-muted-foreground text-sm uppercase tracking-wide">Commitment</p>
-              <p className="text-foreground/70 text-sm mt-3">To Excellence</p>
+              <p className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wide">Commitment</p>
+              <p className="text-foreground/70 text-xs sm:text-sm mt-2 sm:mt-3">To Excellence</p>
             </motion.div>
           </StaggerContainer>
         </div>

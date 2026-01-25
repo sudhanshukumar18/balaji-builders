@@ -55,12 +55,12 @@ const Footer = () => {
         viewport={{ once: true, margin: '-100px' }}
         variants={containerVariants}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Company Info */}
-          <motion.div className="lg:col-span-1" variants={itemVariants}>
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
+          <motion.div className="col-span-2 md:col-span-1 lg:col-span-1" variants={itemVariants}>
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 group">
               <motion.div 
-                className="w-14 h-14 rounded flex items-center justify-center overflow-hidden"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded flex items-center justify-center overflow-hidden"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
@@ -71,17 +71,17 @@ const Footer = () => {
                 />
               </motion.div>
               <div>
-                <h3 className="font-display text-lg leading-tight group-hover:text-primary transition-colors">Balaji Design</h3>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground -mt-1">
+                <h3 className="font-display text-base sm:text-lg leading-tight group-hover:text-primary transition-colors">Balaji Design</h3>
+                <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-muted-foreground -mt-1">
                   & Constructions
                 </p>
               </div>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
               Building dreams and creating landmarks in Wardha. Your trusted partner for quality
               construction and innovative design solutions.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               {[
                 { icon: Facebook, href: 'https://www.facebook.com/share/19V9zhTriM/?mibextid=wwXIfr' },
                 { icon: Instagram, href: 'https://instagram.com' },
@@ -92,7 +92,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-muted-foreground/30 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-muted-foreground/30 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
                   initial="rest"
                   whileHover="hover"
                   variants={socialVariants}
@@ -162,15 +162,15 @@ const Footer = () => {
           </motion.div>
 
           {/* Contact Info */}
-          <motion.div variants={itemVariants}>
-            <h4 className="font-display text-xl mb-6">Contact Us</h4>
-            <ul className="space-y-4">
+          <motion.div variants={itemVariants} className="col-span-2 sm:col-span-1">
+            <h4 className="font-display text-lg sm:text-xl mb-4 sm:mb-6">Contact Us</h4>
+            <ul className="space-y-3 sm:space-y-4">
               <motion.li whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 300 }}>
                 <a
                   href="tel:+918624838652"
-                  className="flex items-start gap-3 text-muted-foreground text-sm hover:text-primary transition-colors"
+                  className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm hover:text-primary transition-colors"
                 >
-                  <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
+                  <Phone className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0 text-primary" />
                   <span>
                     +91 86248 38652
                     <br />
@@ -181,18 +181,18 @@ const Footer = () => {
               <motion.li whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 300 }}>
                 <a
                   href="mailto:balajidesignandconstruction@gmail.com"
-                  className="flex items-start gap-3 text-muted-foreground text-sm hover:text-primary transition-colors"
+                  className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm hover:text-primary transition-colors break-all"
                 >
-                  <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
-                  balajidesignandconstruction@gmail.com
+                  <Mail className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0 text-primary" />
+                  <span className="break-all">balajidesignandconstruction@gmail.com</span>
                 </a>
               </motion.li>
               <motion.li 
-                className="flex items-start gap-3 text-muted-foreground text-sm"
+                className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm"
                 whileHover={{ x: 5 }} 
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0 text-primary" />
                 <span>
                   Prism Square,
                   <br />
@@ -207,17 +207,17 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <motion.div 
-          className="mt-12 pt-8 border-t border-muted-foreground/20 flex flex-col md:flex-row justify-between items-center gap-4"
+          className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-muted-foreground/20 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-xs sm:text-sm text-center md:text-left">
             © {new Date().getFullYear()} Balaji Design & Constructions. All rights reserved.
           </p>
           <motion.p 
-            className="text-muted-foreground text-sm"
+            className="text-muted-foreground text-xs sm:text-sm"
             animate={{ 
               scale: [1, 1.05, 1],
             }}

@@ -322,7 +322,7 @@ const Header = () => {
                 ))}
               </div>
 
-              <nav className="flex flex-col p-6 pt-24 gap-2 relative z-10">
+              <nav className="flex flex-col p-6 pt-24 pb-safe gap-2 relative z-10">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.name}
@@ -333,7 +333,7 @@ const Header = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`text-2xl font-display py-3 border-b border-primary-foreground/20 transition-colors block ${
+                      className={`text-xl sm:text-2xl font-display py-4 border-b border-primary-foreground/20 transition-colors block min-h-[44px] flex items-center ${
                         location.pathname === link.path
                           ? 'text-primary'
                           : 'text-primary-foreground hover:text-gold'

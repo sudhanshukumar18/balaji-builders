@@ -100,9 +100,25 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
+    touch-action: manipulation;
+  }
+
+  /* Ensure minimum tap target size for interactive elements */
+  button, a, input, select, textarea {
+    min-height: 44px;
+  }
+
+  /* Smaller tap targets allowed for inline links and small buttons */
+  a:not([class*="btn"]):not([class*="flex"]):not([class*="block"]) {
+    min-height: auto;
   }
 
   h1, h2, h3, h4, h5, h6 {
