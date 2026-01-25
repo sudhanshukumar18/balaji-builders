@@ -21,9 +21,9 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Wardha Business Center',
-    category: 'Commercial',
-    description: 'State-of-the-art commercial complex designed for modern businesses.',
+    title: 'Modern G+1, 4 BHK Bungalow',
+    category: 'Residential',
+    description: 'A stylish G+1 modern Indian bungalow with contemporary façade and elegant textures.',
     image: projectCommercial1,
     slug: 'wardha-business-center',
   },
