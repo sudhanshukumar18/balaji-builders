@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowLeft, ArrowRight, MapPin, Calendar, Ruler, Download } from 'lucide-react';
+import { ArrowLeft, ArrowRight, MapPin, Calendar, Ruler } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import projectResidential1 from '@/assets/project-residential-1.jpg';
 import projectCommercial1 from '@/assets/project-commercial-1.jpg';
@@ -9,8 +9,6 @@ import projectResidential2 from '@/assets/project-residential-2.jpg';
 import projectBungalow from '@/assets/project-bungalow.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
-import PDFViewer from '@/components/PDFViewer';
-import { FadeInUp } from '@/components/ui/motion';
 
 const projectsData: Record<string, {
   title: string;
@@ -21,7 +19,6 @@ const projectsData: Record<string, {
   area: string;
   image: string;
   details: string[];
-  pdf?: string;
 }> = {
   'modern-villa-residence': {
     title: 'Modern Villa Residence',
@@ -214,33 +211,6 @@ const ProjectDetail = () => {
           </div>
         </div>
       </section>
-
-      {/* PDF Documentation Section */}
-      {project.pdf && (
-        <FadeInUp>
-          <section className="section-padding bg-secondary">
-            <div className="container mx-auto px-4 md:px-6 lg:px-8">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-                <div>
-                  <h3 className="font-display text-2xl md:text-3xl text-foreground">
-                    Project Documentation
-                  </h3>
-                  <p className="text-muted-foreground mt-1">
-                    View detailed floor plans and specifications
-                  </p>
-                </div>
-                <Button asChild className="btn-primary rounded-none group">
-                  <a href={project.pdf} download>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download PDF
-                  </a>
-                </Button>
-              </div>
-              <PDFViewer src={project.pdf} title={`${project.title} Documentation`} />
-            </div>
-          </section>
-        </FadeInUp>
-      )}
 
       <Footer />
     </main>
