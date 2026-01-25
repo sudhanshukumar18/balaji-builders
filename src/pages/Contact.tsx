@@ -187,11 +187,13 @@ const Contact = () => {
                   Call Us Now
                 </a>
                 <a
-                  href="mailto:balajidesignandconstruction@gmail.com?subject=Hi&body=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
-                  className="rounded-none w-full flex items-center justify-center gap-3 py-4 bg-muted border border-border text-foreground hover:bg-muted/80 transition-colors font-medium"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=balajidesignandconstruction@gmail.com&su=Hi&body=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20construction%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-none w-full flex items-center justify-center gap-3 py-4 bg-[#EA4335] hover:bg-[#d33426] text-white transition-colors font-medium"
                 >
                   <Mail className="w-5 h-5" />
-                  Send Email
+                  Send via Gmail
                 </a>
               </div>
             </div>
