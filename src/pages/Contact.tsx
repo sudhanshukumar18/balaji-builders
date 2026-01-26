@@ -8,7 +8,26 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import heroImage from '@/assets/hero-construction.jpg';
 import SEOHead from '@/components/SEOHead';
-import { BreadcrumbSchema } from '@/components/StructuredData';
+import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData';
+
+const contactFAQs = [
+  {
+    question: 'How can I get a free construction quote?',
+    answer: 'Getting a free quote is easy! Call us at +91 86248 38652, WhatsApp us, or email balajidesignandconstruction@gmail.com. You can also visit our office at Prism Square, Bachelor Road, Wardha. We provide detailed estimates after understanding your project requirements.',
+  },
+  {
+    question: 'What areas do you serve in Maharashtra?',
+    answer: 'We primarily serve Wardha district and surrounding areas including Nagpur, Amravati, Chandrapur, and other parts of Vidarbha region in Maharashtra. Contact us to discuss your project location.',
+  },
+  {
+    question: 'What are your working hours?',
+    answer: 'Our office is open Monday to Saturday from 9:00 AM to 6:00 PM. We are closed on Sundays. However, you can reach us via WhatsApp or email anytime, and we will respond on the next business day.',
+  },
+  {
+    question: 'How long does it take to get a response after inquiry?',
+    answer: 'We typically respond to all inquiries within 24 hours on business days. For urgent matters, calling us directly at +91 86248 38652 is the fastest way to get in touch.',
+  },
+];
 const Contact = () => {
   const {
     toast
@@ -49,6 +68,7 @@ const Contact = () => {
       name: 'Contact',
       url: '/contact'
     }]} />
+      <FAQSchema faqs={contactFAQs} />
       <Header />
       
       {/* Hero Section */}

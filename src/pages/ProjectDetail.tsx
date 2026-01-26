@@ -160,8 +160,9 @@ const ProjectDetail = () => {
             <div className="lg:col-span-2">
               <img
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title} - ${project.category} project by Balaji Design & Constructions in ${project.location}`}
                 className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
               />
             </div>
 

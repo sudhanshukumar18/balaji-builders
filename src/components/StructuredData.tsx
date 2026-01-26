@@ -178,3 +178,67 @@ export const OrganizationSchema = () => {
     </Helmet>
   );
 };
+
+// Review Schema for individual reviews
+interface Review {
+  name: string;
+  text: string;
+  rating: number;
+  title?: string;
+}
+
+export const ReviewSchema = ({ reviews }: { reviews: Review[] }) => {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Balaji Design & Constructions',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: reviews.length.toString(),
+      bestRating: '5',
+      worstRating: '1',
+    },
+    review: reviews.map((review) => ({
+      '@type': 'Review',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating.toString(),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      author: {
+        '@type': 'Person',
+        name: review.name,
+      },
+      reviewBody: review.text,
+    })),
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  );
+};
+
+// Website Schema for sitelinks search box
+export const WebsiteSchema = () => {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Balaji Design & Constructions',
+    url: 'https://balajidesign.com',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://balajidesign.com/projects?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  );
+};

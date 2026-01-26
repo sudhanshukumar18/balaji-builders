@@ -7,7 +7,7 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import SEOHead from '@/components/SEOHead';
-import { LocalBusinessSchema, OrganizationSchema } from '@/components/StructuredData';
+import { LocalBusinessSchema, OrganizationSchema, WebsiteSchema } from '@/components/StructuredData';
 
 const Index = () => {
   return (
@@ -19,6 +19,7 @@ const Index = () => {
       />
       <LocalBusinessSchema />
       <OrganizationSchema />
+      <WebsiteSchema />
       <Header />
       <HeroSection />
       <AboutSection />

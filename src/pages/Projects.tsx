@@ -90,10 +90,11 @@ const Projects = () => {
                 to={`/projects/${project.slug}`}
                 className="group relative overflow-hidden bg-muted aspect-[4/3] card-hover"
               >
-                <img
+              <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.category} construction project in Wardha by Balaji Constructions`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">

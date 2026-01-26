@@ -19,6 +19,19 @@ const Footer = () => {
     name: 'Contact',
     path: '/contact'
   }];
+  const serviceLinks = [{
+    name: 'Residential Construction',
+    path: '/services#residential-construction'
+  }, {
+    name: 'Commercial Construction',
+    path: '/services#commercial-construction'
+  }, {
+    name: 'Interior Design',
+    path: '/services#interior-design'
+  }, {
+    name: 'Turnkey Projects',
+    path: '/services#turnkey-project'
+  }];
   const otherLinks = [{
     name: 'Reviews',
     path: '/reviews'
@@ -69,7 +82,7 @@ const Footer = () => {
       once: true,
       margin: '-100px'
     }} variants={containerVariants}>
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-12">
           {/* Company Info */}
           <motion.div className="col-span-2 md:col-span-1 lg:col-span-1" variants={itemVariants}>
             <Link to="/" className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 group">
@@ -124,6 +137,35 @@ const Footer = () => {
               once: true
             }} transition={{
               delay: 0.3 + index * 0.1
+            }}>
+                  <Link to={link.path} className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block relative group">
+                    {link.name}
+                    <motion.span className="absolute -bottom-0.5 left-0 h-px bg-primary" initial={{
+                  width: 0
+                }} whileHover={{
+                  width: '100%'
+                }} transition={{
+                  duration: 0.3
+                }} />
+                  </Link>
+                </motion.li>)}
+            </ul>
+          </motion.div>
+
+          {/* Popular Services */}
+          <motion.div variants={itemVariants}>
+            <h4 className="font-display text-xl mb-6">Popular Services</h4>
+            <ul className="space-y-3">
+              {serviceLinks.map((link, index) => <motion.li key={link.name} initial={{
+              opacity: 0,
+              x: -10
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.35 + index * 0.1
             }}>
                   <Link to={link.path} className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block relative group">
                     {link.name}

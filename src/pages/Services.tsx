@@ -11,7 +11,30 @@ import serviceStructural from '@/assets/service-structural.png';
 import serviceDesignPlanning from '@/assets/service-design-planning.png';
 import serviceTurnkey from '@/assets/service-turnkey.png';
 import SEOHead from '@/components/SEOHead';
-import { BreadcrumbSchema, ServiceSchema } from '@/components/StructuredData';
+import { BreadcrumbSchema, ServiceSchema, FAQSchema } from '@/components/StructuredData';
+
+const serviceFAQs = [
+  {
+    question: 'What types of construction services do you offer in Wardha?',
+    answer: 'Balaji Design & Constructions offers comprehensive construction services including residential construction (homes, villas, apartments), commercial construction (offices, retail spaces), interior design, architectural design, structural design, and turnkey project solutions in Wardha and surrounding areas of Maharashtra.',
+  },
+  {
+    question: 'How much does home construction cost in Wardha?',
+    answer: 'Home construction costs in Wardha vary based on factors like plot size, design complexity, materials, and finishes. We offer free consultations and detailed cost estimates. Contact us at +91 86248 38652 for a personalized quote for your residential project.',
+  },
+  {
+    question: 'Do you provide turnkey construction services?',
+    answer: 'Yes, we provide complete turnkey construction services. This means we handle everything from initial design and planning to final construction and handover. You get a single point of contact, quality materials, timely delivery, and post-construction support.',
+  },
+  {
+    question: 'What is your typical construction timeline?',
+    answer: 'Construction timelines depend on project scope and complexity. A typical residential home takes 8-12 months, while commercial projects may take 12-18 months. We provide detailed project schedules and ensure timely completion with regular progress updates.',
+  },
+  {
+    question: 'Do you offer architectural and structural design services?',
+    answer: 'Yes, we have expert architects and structural engineers who provide comprehensive design services including 3D visualization, structural analysis, RCC design, foundation design, and sustainable building solutions tailored to your requirements and local building codes.',
+  },
+];
 interface Service {
   icon: React.ComponentType<{
     className?: string;
@@ -84,6 +107,7 @@ const Services = () => {
       url: '/services'
     }]} />
       <ServiceSchema serviceName="Construction Services" serviceDescription="Complete construction services including residential, commercial, interior design and planning in Wardha, Maharashtra." />
+      <FAQSchema faqs={serviceFAQs} />
       <Header />
       
       {/* Hero Section */}

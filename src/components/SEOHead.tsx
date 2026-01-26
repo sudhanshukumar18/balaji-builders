@@ -14,7 +14,7 @@ const SEOHead = ({
   description,
   canonical,
   type = 'website',
-  image = '/og-image.jpg',
+  image = '/og-image.png',
   noindex = false,
 }: SEOHeadProps) => {
   const siteUrl = 'https://balajidesign.com';

@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Quote } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
-import { BreadcrumbSchema } from '@/components/StructuredData';
+import { BreadcrumbSchema, ReviewSchema } from '@/components/StructuredData';
 
 const reviews = [
   {
@@ -58,6 +58,7 @@ const Reviews = () => {
         canonical="/reviews"
       />
       <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Reviews', url: '/reviews' }]} />
+      <ReviewSchema reviews={reviews.map(r => ({ name: r.name, text: r.quote, rating: r.rating, title: r.title }))} />
       <Header />
       
       {/* Hero Section */}
