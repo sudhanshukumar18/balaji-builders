@@ -1,0 +1,37 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Enable Netlify's prerendering for bots/crawlers
+[[plugins]]
+  package = "@netlify/plugin-prerender"
+
+# Redirect all routes to index.html for SPA, but let prerender handle bots
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["browser"]}
+
+# Headers for better SEO and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
