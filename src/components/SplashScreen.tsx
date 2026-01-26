@@ -10,6 +10,17 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   const [phase, setPhase] = useState<'logo' | 'text' | 'exit'>('logo');
 
   useEffect(() => {
+    // Skip splash screen for prerenderer/crawler agents
+    if (
+      typeof navigator !== 'undefined' && 
+      (navigator.userAgent.includes('Prerender') || 
+       navigator.userAgent.includes('Googlebot') ||
+       navigator.userAgent.includes('Bingbot'))
+    ) {
+      onComplete();
+      return;
+    }
+
     const timer1 = setTimeout(() => setPhase('text'), 800);
     const timer2 = setTimeout(() => setPhase('exit'), 2800);
     const timer3 = setTimeout(() => onComplete(), 3500);
