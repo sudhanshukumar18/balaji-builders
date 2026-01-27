@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowLeft, ArrowRight, MapPin, Calendar, Ruler } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import projectResidential1 from '@/assets/project-residential-1.jpg';
+import projectResidential1 from '@/assets/project-residential-1.png';
 import projectCommercial1 from '@/assets/project-commercial-1.jpg';
 import projectResidential2 from '@/assets/project-residential-2.jpg';
 import projectBungalow from '@/assets/project-bungalow.jpg';
