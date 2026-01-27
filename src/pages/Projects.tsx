@@ -29,9 +29,9 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Sunrise Apartments',
+    title: 'Modern 3 BHK House',
     category: 'Residential',
-    description: 'Multi-story apartment complex with modern facilities and amenities.',
+    description: 'A modern 3 BHK house combining elegance and functionality with spacious bedrooms and open-plan living.',
     image: projectResidential2,
     slug: 'sunrise-apartments',
   },
