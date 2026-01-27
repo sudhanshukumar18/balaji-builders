@@ -131,7 +131,7 @@ const About = () => {
 
       {/* Second Velocity Marquee - Opposite Direction */}
       <section className="py-6 bg-primary/5 border-y border-primary/10 overflow-hidden">
-        <VelocityText text="Trusted Builder Since 2019" baseVelocity={-2} textClassName="text-primary/20" separator={<span className="mx-10 text-gold/40">◆</span>} />
+        <VelocityText text="Trusted Company Since 2019" baseVelocity={-2} textClassName="text-primary/20" separator={<span className="mx-10 text-gold/40">◆</span>} />
       </section>
 
       {/* Founders Section */}
