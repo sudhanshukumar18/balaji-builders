@@ -336,122 +336,128 @@ const Services = () => {
               </TabsList>
             </motion.div>
 
-            {/* Single Tab Content with AnimatePresence */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeService.slug}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-                className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start"
-              >
-                {/* Media Area with Scale Animation */}
-                <motion.div 
-                  variants={mediaVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="relative aspect-[4/3] lg:aspect-square overflow-hidden rounded-lg bg-muted group"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {activeService.video ? (
-                    <video
-                      src={activeService.video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : activeService.image ? (
-                    <motion.img
-                      src={activeService.image}
-                      alt={activeService.title}
-                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <activeService.icon className="w-24 h-24 text-primary/20" />
-                    </div>
-                  )}
-                  
-                  {/* Subtle hover overlay */}
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-                  />
-                </motion.div>
-
-                {/* Content Area with Staggered Animations */}
-                <motion.div 
-                  variants={contentContainerVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="lg:py-8"
-                >
-                  {/* Icon Box with Bounce Animation */}
-                  <motion.div 
-                    variants={iconBoxVariants}
-                    className="flex items-center gap-3 mb-6"
-                  >
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <activeService.icon className="w-6 h-6 text-primary" />
-                    </div>
-                  </motion.div>
-                  
-                  {/* Title with Blur Reveal */}
-                  <motion.h2 
-                    variants={titleVariants}
-                    className="font-display text-3xl md:text-4xl text-foreground mb-4"
-                  >
-                    {activeService.title}
-                  </motion.h2>
-                  
-                  {/* Description with Fade Up */}
-                  <motion.p 
-                    variants={descVariants}
-                    className="text-muted-foreground text-lg leading-relaxed mb-8"
-                  >
-                    {activeService.description}
-                  </motion.p>
-
-                  {/* Feature List with Staggered Items */}
-                  <motion.ul 
-                    variants={featureListVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="space-y-3 mb-10"
-                  >
-                    {activeService.features.map((feature, i) => (
-                      <motion.li 
-                        key={i} 
-                        variants={featureItemVariants}
-                        className="flex items-start gap-3"
+            {/* Tab Content with Enhanced Animations */}
+            {services.map((service) => (
+              <TabsContent key={service.slug} value={service.slug} className="mt-0 focus-visible:outline-none">
+                <AnimatePresence mode="wait">
+                  {activeTab === service.slug && (
+                    <motion.div
+                      key={service.slug}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -16 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start"
+                    >
+                      {/* Media Area with Scale Animation */}
+                      <motion.div 
+                        variants={mediaVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="relative aspect-[4/3] lg:aspect-square overflow-hidden rounded-lg bg-muted group"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.4 }}
                       >
-                        <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                        <span className="text-foreground">{feature}</span>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
+                        {service.video ? (
+                          <video
+                            src={service.video}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : service.image ? (
+                          <motion.img
+                            src={service.image}
+                            alt={service.title}
+                            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <service.icon className="w-24 h-24 text-primary/20" />
+                          </div>
+                        )}
+                        
+                        {/* Subtle hover overlay */}
+                        <motion.div 
+                          className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                        />
+                      </motion.div>
 
-                  {/* CTA Button with Scale Animation */}
-                  <motion.div variants={buttonVariants}>
-                    <Button asChild className="btn-primary rounded-none group relative overflow-hidden">
-                      <Link to="/contact">
-                        <motion.span 
-                          className="relative z-10 flex items-center"
-                          whileHover={{ x: 4 }}
-                          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                      {/* Content Area with Staggered Animations */}
+                      <motion.div 
+                        variants={contentContainerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="lg:py-8"
+                      >
+                        {/* Icon Box with Bounce Animation */}
+                        <motion.div 
+                          variants={iconBoxVariants}
+                          className="flex items-center gap-3 mb-6"
                         >
-                          Get a Quote
-                          <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </motion.span>
-                      </Link>
-                    </Button>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
+                          <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <service.icon className="w-6 h-6 text-primary" />
+                          </div>
+                        </motion.div>
+                        
+                        {/* Title with Blur Reveal */}
+                        <motion.h2 
+                          variants={titleVariants}
+                          className="font-display text-3xl md:text-4xl text-foreground mb-4"
+                        >
+                          {service.title}
+                        </motion.h2>
+                        
+                        {/* Description with Fade Up */}
+                        <motion.p 
+                          variants={descVariants}
+                          className="text-muted-foreground text-lg leading-relaxed mb-8"
+                        >
+                          {service.description}
+                        </motion.p>
+
+                        {/* Feature List with Staggered Items */}
+                        <motion.ul 
+                          variants={featureListVariants}
+                          initial="hidden"
+                          animate="visible"
+                          className="space-y-3 mb-10"
+                        >
+                          {service.features.map((feature, i) => (
+                            <motion.li 
+                              key={i} 
+                              variants={featureItemVariants}
+                              className="flex items-start gap-3"
+                            >
+                              <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                              <span className="text-foreground">{feature}</span>
+                            </motion.li>
+                          ))}
+                        </motion.ul>
+
+                        {/* CTA Button with Scale Animation */}
+                        <motion.div variants={buttonVariants}>
+                          <Button asChild className="btn-primary rounded-none group relative overflow-hidden">
+                            <Link to="/contact">
+                              <motion.span 
+                                className="relative z-10 flex items-center"
+                                whileHover={{ x: 4 }}
+                                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                              >
+                                Get a Quote
+                                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                              </motion.span>
+                            </Link>
+                          </Button>
+                        </motion.div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </TabsContent>
+            ))}
           </Tabs>
         </div>
       </section>
