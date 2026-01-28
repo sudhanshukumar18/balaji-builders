@@ -55,18 +55,15 @@ const MegaMenu = ({ isOpen, onClose }: MegaMenuProps) => {
   return (
     <div
       className={`
-        absolute top-full left-0 right-0 w-full
-        bg-background/98 backdrop-blur-xl
-        border-b border-border/50
-        shadow-2xl shadow-black/20
+        absolute top-full left-0 right-0 w-full z-50
+        bg-card border-t border-border
+        shadow-2xl shadow-black/40
         transition-all duration-300 ease-in-out
         ${isOpen 
           ? 'opacity-100 translate-y-0 visible pointer-events-auto' 
-          : 'opacity-0 -translate-y-3 invisible pointer-events-none'
+          : 'opacity-0 -translate-y-2 invisible pointer-events-none'
         }
       `}
-      onMouseEnter={() => {}}
-      onMouseLeave={onClose}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -87,8 +84,8 @@ const MegaMenu = ({ isOpen, onClose }: MegaMenuProps) => {
               to={`/services#${service.slug}`}
               onClick={onClose}
               className="group flex items-start gap-3 p-4 rounded-lg 
-                         bg-transparent hover:bg-primary/5
-                         border border-transparent hover:border-primary/20
+                         bg-muted/50 hover:bg-primary/10
+                         border border-border/50 hover:border-primary/30
                          transition-all duration-200 ease-out"
               style={{
                 transitionDelay: isOpen ? `${index * 30}ms` : '0ms',
@@ -100,7 +97,7 @@ const MegaMenu = ({ isOpen, onClose }: MegaMenuProps) => {
                 <service.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <div className="min-w-0">
-                <h4 className="font-medium text-sm text-primary-foreground group-hover:text-primary transition-colors truncate">
+                <h4 className="font-medium text-sm text-foreground group-hover:text-primary transition-colors truncate">
                   {service.title}
                 </h4>
                 <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">

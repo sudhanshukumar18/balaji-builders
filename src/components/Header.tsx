@@ -101,6 +101,10 @@ const Header = () => {
                         }`} 
                       />
                     </Link>
+                    {/* Hover bridge to prevent menu closing */}
+                    <div className="absolute left-0 right-0 top-full h-4" />
+                    {/* Mega Menu inside the hover container */}
+                    <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} />
                   </div>
                 ) : (
                   <Link
@@ -150,13 +154,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mega Menu */}
-        <div
-          onMouseEnter={handleMegaMenuEnter}
-          onMouseLeave={handleMegaMenuLeave}
-        >
-          <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} />
-        </div>
       </header>
 
       {/* Mobile Menu */}
