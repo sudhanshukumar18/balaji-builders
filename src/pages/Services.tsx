@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -218,14 +218,31 @@ const buttonVariants = {
 const Services = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('residential-construction');
+  const tabsSectionRef = useRef<HTMLElement>(null);
 
-  // Handle hash navigation from homepage
+  // Handle hash navigation from homepage with smooth scroll
   useEffect(() => {
     if (location.hash) {
       const slug = location.hash.replace('#', '');
       const serviceExists = services.find(s => s.slug === slug);
       if (serviceExists) {
         setActiveTab(slug);
+        
+        // Smooth scroll to tabs section after a short delay for page render
+        const scrollTimeout = setTimeout(() => {
+          if (tabsSectionRef.current) {
+            const headerOffset = 100; // Account for fixed header
+            const elementPosition = tabsSectionRef.current.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+        
+        return () => clearTimeout(scrollTimeout);
       }
     }
   }, [location.hash]);
@@ -281,7 +298,7 @@ const Services = () => {
       </section>
 
       {/* Tabs-Based Services Section */}
-      <section className="section-padding bg-background">
+      <section ref={tabsSectionRef} className="section-padding bg-background" id="services-tabs">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             {/* Tab Navigation with Animated Indicator */}
