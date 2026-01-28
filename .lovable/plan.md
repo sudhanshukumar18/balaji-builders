@@ -1,147 +1,90 @@
 
+# Fix for Services Tab Content Display Issue
 
-# Enhanced Animations for Services Section
+## Problem Identified
+When navigating to the Services page, all service options (Residential, Commercial, Interior, Planning, Turnkey, Structural, Architectural) are showing simultaneously instead of just the selected tab content.
 
-## Overview
-Add rich, polished animations to the Services page tabs interface to create a more engaging and premium user experience. The enhancements will build on the existing Framer Motion setup.
+## Root Cause
+The current implementation has a structural conflict between Radix UI's built-in tab visibility handling and Framer Motion's `AnimatePresence`:
 
-## Current State
-The Services page has basic animations:
-- Simple fade-in/slide transitions when switching tabs (`opacity` and `y` position)
-- No entrance animations for the hero section
-- No animations on feature list items
-- Static tab navigation (no hover or active animations)
-
-## Proposed Animation Enhancements
-
-### 1. Hero Section Entrance Animation
-Add staggered entrance animations when the page loads:
-- Primary text label fades in with upward motion
-- Title scales in with slight blur effect
-- Description slides in from below
-
-### 2. Tab Navigation Animations
-Enhance the tab bar with interactive animations:
-- **Active tab indicator**: Animated underline that slides between tabs using `layoutId`
-- **Hover effects**: Subtle scale and background color changes
-- **Icons**: Gentle rotation on hover for visual feedback
-
-### 3. Content Panel Animations
-More sophisticated transitions for the service content:
-- **Media area**: Scale-in effect with slight zoom
-- **Icon box**: Bouncy entrance with rotation
-- **Title**: Text reveal with blur-to-clear effect
-- **Description**: Smooth fade-in from below
-- **Feature list**: Staggered cascade animation (each item enters sequentially)
-- **CTA button**: Scale-in with glow pulse effect
-
-### 4. Image/Video Hover Effects
-Add subtle interactive effects:
-- Slight zoom on hover for images
-- Overlay gradient that fades in
-
----
-
-## Technical Implementation
-
-### File Modified
-**`src/pages/Services.tsx`**
-
-### Key Animation Components Used
-- `FadeInUp`, `ScaleIn`, `BlurIn` from `motion.tsx`
-- `staggerContainer` and `staggerChildren` for list items
-- `layoutId` for smooth tab indicator transitions
-- Custom variants for tab content
-
-### Animation Timeline
-
-```text
-Page Load:
-  0ms   -> Hero label fades in
-  200ms -> Hero title scales in with blur
-  400ms -> Hero description slides up
-
-Tab Switch:
-  0ms   -> Old content fades out + slides up
-  150ms -> New media scales in
-  200ms -> New icon bounces in
-  250ms -> New title fades in
-  300ms -> New description appears
-  350ms -> Feature items cascade in (50ms stagger)
-  600ms -> CTA button scales in with glow
+**Current Code Structure (lines 340-343):**
+```typescript
+{services.map((service) => (
+  <TabsContent key={service.slug} value={service.slug}>
+    <AnimatePresence mode="wait">
+      {activeTab === service.slug && (
+        <motion.div>...</motion.div>
+      )}
+    </AnimatePresence>
+  </TabsContent>
+))}
 ```
 
-### Code Structure
+**The Issues:**
+1. `AnimatePresence` is placed inside each `TabsContent`, so there are 7 separate `AnimatePresence` components
+2. Radix's `TabsContent` handles its own show/hide logic, which conflicts with the manual `activeTab === service.slug` check
+3. The `mode="wait"` can't work across separate `AnimatePresence` instances
 
-**Hero Section Animation:**
+## Solution
+Restructure to use a single `AnimatePresence` outside the content loop, rendering only the active service:
+
+**Fixed Structure:**
 ```typescript
-<motion.p
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.1 }}
->
-  Our Services
-</motion.p>
+<AnimatePresence mode="wait">
+  <motion.div key={activeTab}>
+    {/* Render only activeService content */}
+  </motion.div>
+</AnimatePresence>
 ```
 
-**Animated Tab Indicator:**
+## Implementation Changes
+
+### File: `src/pages/Services.tsx`
+
+**Change 1: Replace the TabsContent mapping (lines 339-432)**
+
+Instead of mapping through all services and creating separate `TabsContent` components, we will:
+1. Remove the `services.map()` for TabsContent
+2. Use a single container with `AnimatePresence` outside
+3. Render only the `activeService` content inside
+
+**New structure:**
 ```typescript
-{activeTab === service.slug && (
+{/* Single Tab Content with AnimatePresence */}
+<AnimatePresence mode="wait">
   <motion.div
-    layoutId="activeTab"
-    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-  />
-)}
+    key={activeService.slug}
+    initial={{ opacity: 0, y: 16 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -16 }}
+    transition={{ duration: 0.3, ease: 'easeOut' }}
+    className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start"
+  >
+    {/* Media Area */}
+    <motion.div ...>
+      {activeService.video ? (...) : activeService.image ? (...) : (...)}
+    </motion.div>
+    
+    {/* Content Area */}
+    <motion.div ...>
+      <activeService.icon ... />
+      <h2>{activeService.title}</h2>
+      <p>{activeService.description}</p>
+      <ul>{activeService.features.map(...)}</ul>
+      <Button>Get a Quote</Button>
+    </motion.div>
+  </motion.div>
+</AnimatePresence>
 ```
 
-**Staggered Feature List:**
-```typescript
-<motion.ul
-  variants={{
-    visible: { transition: { staggerChildren: 0.08 } }
-  }}
->
-  {features.map((feature, i) => (
-    <motion.li
-      key={i}
-      variants={{
-        hidden: { opacity: 0, x: -20 },
-        visible: { opacity: 1, x: 0 }
-      }}
-    >
-      {feature}
-    </motion.li>
-  ))}
-</motion.ul>
-```
+This approach:
+- Uses the already-defined `activeService` variable (line 250)
+- Removes redundant `TabsContent` components since we're managing visibility ourselves
+- Ensures only one service content is rendered at a time
+- Properly enables exit animations with single `AnimatePresence`
 
-**Image Hover Effect:**
-```typescript
-<motion.div
-  className="overflow-hidden"
-  whileHover={{ scale: 1.02 }}
->
-  <motion.img
-    whileHover={{ scale: 1.05 }}
-    transition={{ duration: 0.4 }}
-  />
-</motion.div>
-```
-
----
-
-## Visual Preview
-
-The enhanced animations will create this experience:
-
-1. **Page load**: Smooth, staggered reveal of hero content
-2. **Tab navigation**: Fluid indicator that slides between tabs
-3. **Tab switch**: Content gracefully exits while new content cascades in
-4. **Hover states**: Subtle feedback on images and buttons
-5. **Feature list**: Professional staggered reveal animation
-
-## Mobile Considerations
-- Reduced motion for users with `prefers-reduced-motion`
-- Simpler animations on mobile to maintain performance
-- Touch-friendly tap states instead of hover effects
-
+## Summary
+- Remove the `services.map()` that creates multiple `TabsContent` components
+- Keep the `TabsList` and `TabsTrigger` mapping for navigation
+- Use a single `AnimatePresence` wrapper with `activeService` as the content source
+- Animations will work correctly with `mode="wait"` for smooth transitions
