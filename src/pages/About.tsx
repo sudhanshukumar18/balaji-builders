@@ -84,7 +84,7 @@ const About = () => {
               <div>
                 <h2 className="section-title text-foreground mb-6">Our Story</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>Balaji Design & Constructions was founded in 2019 with a simple mission: to provide honest, quality construction services to the people of Wardha ,nagpur ,pune and surrounding areas.</p>
+                  <p>Balaji Design & Constructions was founded in 2019 with a simple mission: to provide honest, quality construction services to the people of Wardha,nagpur ,pune and surrounding areas.</p>
                   <p>
                     What started as a small local construction firm has grown into a trusted name in the
                     industry, known for our commitment to excellence, transparent business practices, and
