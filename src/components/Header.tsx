@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Menu, X } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown } from 'lucide-react';
 import logoImage from '@/assets/logo.png';
 import { Button } from '@/components/ui/button';
+import MegaMenu from './MegaMenu';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -19,13 +22,27 @@ const Header = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsMegaMenuOpen(false);
   }, [location]);
+
+  const handleMegaMenuEnter = () => {
+    if (megaMenuTimeoutRef.current) {
+      clearTimeout(megaMenuTimeoutRef.current);
+    }
+    setIsMegaMenuOpen(true);
+  };
+
+  const handleMegaMenuLeave = () => {
+    megaMenuTimeoutRef.current = setTimeout(() => {
+      setIsMegaMenuOpen(false);
+    }, 150);
+  };
 
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Services', path: '/services' },
+    { name: 'Services', path: '/services', hasMegaMenu: true },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -62,17 +79,42 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`text-sm font-medium tracking-wide transition-colors duration-200 hover:text-primary ${
-                    location.pathname === link.path
-                      ? 'text-primary'
-                      : 'text-primary-foreground/80'
-                  }`}
-                >
-                  {link.name}
-                </Link>
+                link.hasMegaMenu ? (
+                  <div
+                    key={link.name}
+                    className="relative"
+                    onMouseEnter={handleMegaMenuEnter}
+                    onMouseLeave={handleMegaMenuLeave}
+                  >
+                    <Link
+                      to={link.path}
+                      className={`text-sm font-medium tracking-wide transition-colors duration-200 hover:text-primary flex items-center gap-1 ${
+                        location.pathname === link.path || isMegaMenuOpen
+                          ? 'text-primary'
+                          : 'text-primary-foreground/80'
+                      }`}
+                    >
+                      {link.name}
+                      <ChevronDown 
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          isMegaMenuOpen ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </Link>
+                  </div>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`text-sm font-medium tracking-wide transition-colors duration-200 hover:text-primary ${
+                      location.pathname === link.path
+                        ? 'text-primary'
+                        : 'text-primary-foreground/80'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
             </nav>
 
@@ -106,6 +148,14 @@ const Header = () => {
               )}
             </button>
           </div>
+        </div>
+
+        {/* Mega Menu */}
+        <div
+          onMouseEnter={handleMegaMenuEnter}
+          onMouseLeave={handleMegaMenuLeave}
+        >
+          <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} />
         </div>
       </header>
 
