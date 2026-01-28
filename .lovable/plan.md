@@ -1,116 +1,147 @@
 
-# Services Section Redesign Plan
+
+# Enhanced Animations for Services Section
 
 ## Overview
-Transform the current alternating two-column layout into a modern, minimal tabs-based interface. Users will click on service tabs to view detailed information with smooth animations and clean typography.
+Add rich, polished animations to the Services page tabs interface to create a more engaging and premium user experience. The enhancements will build on the existing Framer Motion setup.
 
-## Design Preview
+## Current State
+The Services page has basic animations:
+- Simple fade-in/slide transitions when switching tabs (`opacity` and `y` position)
+- No entrance animations for the hero section
+- No animations on feature list items
+- Static tab navigation (no hover or active animations)
 
-The new design will feature:
-- **Clean horizontal tab navigation** with service icons and titles
-- **Minimal content area** showing the selected service's details
-- **Smooth fade transitions** when switching between tabs
-- **Large, prominent media area** for the selected service
-- **Streamlined feature list** with better visual hierarchy
+## Proposed Animation Enhancements
 
-## Visual Layout
+### 1. Hero Section Entrance Animation
+Add staggered entrance animations when the page loads:
+- Primary text label fades in with upward motion
+- Title scales in with slight blur effect
+- Description slides in from below
 
-```text
-+--------------------------------------------------+
-|              HERO SECTION (unchanged)            |
-+--------------------------------------------------+
+### 2. Tab Navigation Animations
+Enhance the tab bar with interactive animations:
+- **Active tab indicator**: Animated underline that slides between tabs using `layoutId`
+- **Hover effects**: Subtle scale and background color changes
+- **Icons**: Gentle rotation on hover for visual feedback
 
-+--------------------------------------------------+
-|  [Icon] Residential | [Icon] Commercial | ...    |  <- Tab Navigation
-+--------------------------------------------------+
-|                                                  |
-|  +-------------------+  +---------------------+  |
-|  |                   |  |  Service Title      |  |
-|  |   Image/Video     |  |  Description text   |  |
-|  |   (Large)         |  |                     |  |
-|  |                   |  |  - Feature 1        |  |
-|  |                   |  |  - Feature 2        |  |
-|  |                   |  |  - Feature 3        |  |
-|  |                   |  |                     |  |
-|  +-------------------+  |  [Get a Quote]      |  |
-|                         +---------------------+  |
-+--------------------------------------------------+
-```
+### 3. Content Panel Animations
+More sophisticated transitions for the service content:
+- **Media area**: Scale-in effect with slight zoom
+- **Icon box**: Bouncy entrance with rotation
+- **Title**: Text reveal with blur-to-clear effect
+- **Description**: Smooth fade-in from below
+- **Feature list**: Staggered cascade animation (each item enters sequentially)
+- **CTA button**: Scale-in with glow pulse effect
 
-## Implementation Steps
-
-### Step 1: Update Services.tsx Layout Structure
-Replace the current `services.map()` with a Radix Tabs component:
-- Use `Tabs` as the container with `defaultValue="residential-construction"`
-- `TabsList` for the horizontal navigation bar
-- `TabsTrigger` for each service (icon + title)
-- `TabsContent` for each service's detailed content
-
-### Step 2: Design the Tab Navigation
-- Horizontal scrollable tabs on mobile (using `overflow-x-auto`)
-- Icons displayed alongside titles for quick recognition
-- Active tab highlighted with primary color underline
-- Minimal styling: no heavy backgrounds, just subtle borders
-
-### Step 3: Create the Content Panel
-- Two-column grid layout (image/video left, content right)
-- Framer Motion `AnimatePresence` for smooth fade transitions between tabs
-- Large media area with subtle hover effects
-- Clean typography with generous whitespace
-- Simplified feature list with checkmarks
-
-### Step 4: Mobile Responsive Design
-- Stack tabs vertically or use horizontal scroll on mobile
-- Single-column content layout below 768px
-- Maintain tap target sizes (44px minimum)
+### 4. Image/Video Hover Effects
+Add subtle interactive effects:
+- Slight zoom on hover for images
+- Overlay gradient that fades in
 
 ---
 
-## Technical Details
+## Technical Implementation
 
-### Files to Modify
-1. **src/pages/Services.tsx** - Main services page with new tabs layout
+### File Modified
+**`src/pages/Services.tsx`**
 
-### Dependencies Used
-- `@radix-ui/react-tabs` (already installed)
-- `framer-motion` (already installed)
-- Existing UI components: `Tabs`, `TabsList`, `TabsTrigger`, `TabsContent`
+### Key Animation Components Used
+- `FadeInUp`, `ScaleIn`, `BlurIn` from `motion.tsx`
+- `staggerContainer` and `staggerChildren` for list items
+- `layoutId` for smooth tab indicator transitions
+- Custom variants for tab content
 
-### Key Code Changes
+### Animation Timeline
 
-**Tab Navigation Styling:**
-- Custom classes for minimal tab triggers
-- Primary color underline for active state
-- Icon + text layout in triggers
-- Horizontal scroll wrapper for mobile
+```text
+Page Load:
+  0ms   -> Hero label fades in
+  200ms -> Hero title scales in with blur
+  400ms -> Hero description slides up
 
-**Content Panel Animation:**
-```typescript
-<AnimatePresence mode="wait">
-  <motion.div
-    key={activeService}
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -10 }}
-    transition={{ duration: 0.3 }}
-  >
-    {/* Service content */}
-  </motion.div>
-</AnimatePresence>
+Tab Switch:
+  0ms   -> Old content fades out + slides up
+  150ms -> New media scales in
+  200ms -> New icon bounces in
+  250ms -> New title fades in
+  300ms -> New description appears
+  350ms -> Feature items cascade in (50ms stagger)
+  600ms -> CTA button scales in with glow
 ```
 
-**Responsive Grid:**
-- Desktop: `grid-cols-2` with 50/50 split
-- Mobile: `grid-cols-1` with stacked layout
+### Code Structure
 
-### Styling Approach
-- Remove heavy hover effects and gradient overlays
-- Focus on typography and whitespace
-- Subtle border separations
-- Clean icon presentation with primary color accents
-- Minimal shadows and decorations
+**Hero Section Animation:**
+```typescript
+<motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+>
+  Our Services
+</motion.p>
+```
 
-### Accessibility
-- Proper ARIA attributes from Radix tabs
-- Keyboard navigation support built-in
-- Focus states clearly visible
+**Animated Tab Indicator:**
+```typescript
+{activeTab === service.slug && (
+  <motion.div
+    layoutId="activeTab"
+    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+  />
+)}
+```
+
+**Staggered Feature List:**
+```typescript
+<motion.ul
+  variants={{
+    visible: { transition: { staggerChildren: 0.08 } }
+  }}
+>
+  {features.map((feature, i) => (
+    <motion.li
+      key={i}
+      variants={{
+        hidden: { opacity: 0, x: -20 },
+        visible: { opacity: 1, x: 0 }
+      }}
+    >
+      {feature}
+    </motion.li>
+  ))}
+</motion.ul>
+```
+
+**Image Hover Effect:**
+```typescript
+<motion.div
+  className="overflow-hidden"
+  whileHover={{ scale: 1.02 }}
+>
+  <motion.img
+    whileHover={{ scale: 1.05 }}
+    transition={{ duration: 0.4 }}
+  />
+</motion.div>
+```
+
+---
+
+## Visual Preview
+
+The enhanced animations will create this experience:
+
+1. **Page load**: Smooth, staggered reveal of hero content
+2. **Tab navigation**: Fluid indicator that slides between tabs
+3. **Tab switch**: Content gracefully exits while new content cascades in
+4. **Hover states**: Subtle feedback on images and buttons
+5. **Feature list**: Professional staggered reveal animation
+
+## Mobile Considerations
+- Reduced motion for users with `prefers-reduced-motion`
+- Simpler animations on mobile to maintain performance
+- Touch-friendly tap states instead of hover effects
+
