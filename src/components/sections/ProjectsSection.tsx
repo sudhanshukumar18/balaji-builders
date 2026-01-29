@@ -9,7 +9,7 @@ import projectResidential2 from '@/assets/project-residential-2.png';
 import projectBungalow from '@/assets/project-bungalow.jpg';
 const projects = [{
   id: 1,
-  title: 'Modern G+1, 3 BHK House',
+  title: 'Planning',
   category: 'Residential',
   image: projectResidential1,
   slug: 'modern-villa-residence'
