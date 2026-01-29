@@ -14,6 +14,9 @@ import exterior7 from '@/assets/exterior-7.jpg';
 import exterior8 from '@/assets/exterior-8.jpg';
 import exterior9 from '@/assets/exterior-9.jpg';
 import exterior10 from '@/assets/exterior-10.jpg';
+import exterior11 from '@/assets/exterior-11.jpg';
+import exterior12 from '@/assets/exterior-12.jpg';
+import exterior13 from '@/assets/exterior-13.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp } from '@/components/ui/motion';
@@ -33,6 +36,9 @@ const exteriorImages = [
   { id: 8, image: exterior8, alt: 'Contemporary apartment exterior view' },
   { id: 9, image: exterior9, alt: 'Residential complex exterior design' },
   { id: 10, image: exterior10, alt: 'Modern house with unique facade' },
+  { id: 11, image: exterior11, alt: 'Luxury apartment complex exterior' },
+  { id: 12, image: exterior12, alt: 'Modern tower building with lighting' },
+  { id: 13, image: exterior13, alt: 'Contemporary residential building' },
 ];
 
 const interiorImages = [
