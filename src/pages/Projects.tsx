@@ -35,14 +35,6 @@ const projects = [
     image: projectResidential2,
     slug: 'sunrise-apartments',
   },
-  {
-    id: 4,
-    title: 'Heritage Bungalow',
-    category: 'Residential',
-    description: 'Traditional bungalow design blended with contemporary comfort.',
-    image: projectBungalow,
-    slug: 'heritage-bungalow',
-  },
 ];
 
 const Projects = () => {
