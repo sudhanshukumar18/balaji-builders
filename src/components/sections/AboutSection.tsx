@@ -28,11 +28,7 @@ const AboutSection = () => {
               <br />
               Partner in Wardha
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Balaji Design & Constructions has been serving Wardha and surrounding areas for over
-              6 years. We specialize in residential and commercial construction, bringing your
-              dreams to life with dedication, expertise, and an unwavering commitment to quality.
-            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">Balaji Design & Constructions has been serving Wardha, nagpur,pune and surrounding areas for over 6 years. We specialize in residential and commercial construction, bringing your dreams to life with dedication, expertise, and an unwavering commitment to quality.</p>
             <ul className="space-y-4 mb-8">
               {highlights.map((item, index) => <motion.li key={index} className="flex items-center gap-3" initial={{
               opacity: 0,
