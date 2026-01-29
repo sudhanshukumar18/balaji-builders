@@ -13,7 +13,7 @@ import { BreadcrumbSchema } from '@/components/StructuredData';
 const projects = [
   {
     id: 1,
-    title: 'Modern G+1, 3 BHK House',
+    title: 'Planning',
     category: 'Residential',
     description: 'A stunning contemporary villa with modern amenities and beautiful landscaping.',
     image: projectResidential1,
