@@ -228,19 +228,21 @@ const Services = () => {
       if (serviceExists) {
         setActiveTab(slug);
         
-        // Smooth scroll to tabs section after a short delay for page render
+        // Smooth scroll to tabs section after page transition completes
         const scrollTimeout = setTimeout(() => {
-          if (tabsSectionRef.current) {
-            const headerOffset = 100; // Account for fixed header
-            const elementPosition = tabsSectionRef.current.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - headerOffset;
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-          }
-        }, 100);
+          requestAnimationFrame(() => {
+            if (tabsSectionRef.current) {
+              const headerOffset = 100; // Account for fixed header
+              const elementPosition = tabsSectionRef.current.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.scrollY - headerOffset;
+              
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+            }
+          });
+        }, 350); // Enough time for page transition to complete
         
         return () => clearTimeout(scrollTimeout);
       }
