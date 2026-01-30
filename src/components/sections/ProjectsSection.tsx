@@ -50,6 +50,6 @@ const itemVariants = {
   }
 };
 const ProjectsSection = () => {
-  return;
+  return null;
 };
 export default ProjectsSection;

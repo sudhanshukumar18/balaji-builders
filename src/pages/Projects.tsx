@@ -3,6 +3,12 @@ import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import projectResidential1 from '@/assets/project-residential-1.png';
 import projectResidential2 from '@/assets/project-residential-2.png';
+import interior1 from '@/assets/interior-1.jpg';
+import interior2 from '@/assets/interior-2.jpg';
+import interior3 from '@/assets/interior-3.jpg';
+import interior4 from '@/assets/interior-4.jpg';
+import interior5 from '@/assets/interior-5.jpg';
+import interior6 from '@/assets/interior-6.jpg';
 import heroImage from '@/assets/hero-construction.jpg';
 import exterior1 from '@/assets/exterior-1.jpg';
 import exterior2 from '@/assets/exterior-2.jpg';
@@ -43,6 +49,12 @@ const exteriorImages = [
 
 const interiorImages = [
   { id: 1, image: projectResidential2, alt: 'Modern interior design concept' },
+  { id: 2, image: interior1, alt: 'Living room with artistic wall decor' },
+  { id: 3, image: interior2, alt: 'Modern living room with TV unit' },
+  { id: 4, image: interior3, alt: 'Contemporary bedroom with wardrobe' },
+  { id: 5, image: interior4, alt: 'Modern office workspace design' },
+  { id: 6, image: interior5, alt: 'Open plan office interior with greenery' },
+  { id: 7, image: interior6, alt: 'Elegant gallery wall living space' },
 ];
 
 const containerVariants = {
