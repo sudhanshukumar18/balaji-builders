@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import WhatsAppButton from "./components/WhatsAppButton";
 import SplashScreen from "./components/SplashScreen";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <AnimatedRoutes />
           <WhatsAppButton />
         </BrowserRouter>
