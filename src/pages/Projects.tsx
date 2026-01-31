@@ -9,6 +9,9 @@ import interior3 from '@/assets/interior-3.jpg';
 import interior4 from '@/assets/interior-4.jpg';
 import interior5 from '@/assets/interior-5.jpg';
 import interior6 from '@/assets/interior-6.jpg';
+import interior7 from '@/assets/interior-7.jpg';
+import interior8 from '@/assets/interior-8.jpg';
+import interior9 from '@/assets/interior-9.jpg';
 import heroImage from '@/assets/hero-construction.jpg';
 import exterior1 from '@/assets/exterior-1.jpg';
 import exterior2 from '@/assets/exterior-2.jpg';
@@ -55,6 +58,9 @@ const interiorImages = [
   { id: 5, image: interior4, alt: 'Modern office workspace design' },
   { id: 6, image: interior5, alt: 'Open plan office interior with greenery' },
   { id: 7, image: interior6, alt: 'Elegant gallery wall living space' },
+  { id: 8, image: interior7, alt: 'Luxury TV unit with LED lighting design' },
+  { id: 9, image: interior8, alt: 'Modern TV wall with decorative panels' },
+  { id: 10, image: interior9, alt: 'Contemporary living room with false ceiling' },
 ];
 
 const containerVariants = {
