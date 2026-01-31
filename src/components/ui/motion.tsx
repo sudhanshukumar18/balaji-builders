@@ -230,7 +230,7 @@ interface CounterProps {
 
 export const Counter = ({ from = 0, to, duration = 2, suffix = '', prefix = '', className }: CounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-20px' });
   const [count, setCount] = useState(from);
 
   useEffect(() => {
