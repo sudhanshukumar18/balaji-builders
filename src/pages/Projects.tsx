@@ -35,20 +35,20 @@ const planningImages = [
   { id: 1, image: projectResidential1, alt: 'Modern residential planning design' },
 ];
 
-const exteriorImages = [
-  { id: 1, image: exterior1, alt: 'Modern villa exterior with landscape' },
-  { id: 2, image: exterior2, alt: 'Contemporary bungalow facade design' },
-  { id: 3, image: exterior3, alt: 'Modern commercial exterior with glass' },
-  { id: 4, image: exterior4, alt: 'Sunset view modern house exterior' },
-  { id: 5, image: exterior5, alt: 'Traditional style house with modern elements' },
-  { id: 6, image: exterior6, alt: 'Multi-story apartment complex design' },
-  { id: 7, image: exterior7, alt: 'Modern apartment building elevation' },
-  { id: 8, image: exterior8, alt: 'Contemporary apartment exterior view' },
-  { id: 9, image: exterior9, alt: 'Residential complex exterior design' },
-  { id: 10, image: exterior10, alt: 'Modern house with unique facade' },
-  { id: 11, image: exterior11, alt: 'Luxury apartment complex exterior' },
-  { id: 12, image: exterior12, alt: 'Modern tower building with lighting' },
-  { id: 13, image: exterior13, alt: 'Contemporary residential building' },
+const exteriorSliderImages = [
+  exterior1,
+  exterior2,
+  exterior3,
+  exterior4,
+  exterior5,
+  exterior6,
+  exterior7,
+  exterior8,
+  exterior9,
+  exterior10,
+  exterior11,
+  exterior12,
+  exterior13,
 ];
 
 const interiorSliderImages = [
@@ -179,7 +179,19 @@ const Projects = () => {
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <GalleryGrid images={planningImages} title="Planning" category="Design & Architecture" />
-          <GalleryGrid images={exteriorImages} title="Exterior Design" category="Facade & Elevation" />
+          
+          {/* Exterior Design with Auto Slider */}
+          <div className="mb-16">
+            <FadeInUp>
+              <div className="mb-8">
+                <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
+                  Facade & Elevation
+                </p>
+                <h2 className="font-display text-2xl md:text-3xl text-foreground">Exterior Design</h2>
+              </div>
+            </FadeInUp>
+            <ImageAutoSlider images={exteriorSliderImages} />
+          </div>
           
           {/* Interior Design with Flip Gallery */}
           <div className="mb-16">
