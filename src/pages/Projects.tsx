@@ -33,6 +33,11 @@ import { FadeInUp } from '@/components/ui/motion';
 
 const planningImages = [
   { id: 1, image: projectResidential1, alt: 'Modern residential planning design' },
+  { id: 2, image: projectResidential2, alt: 'Contemporary house floor plan' },
+  { id: 3, image: interior1, alt: 'Interior space planning layout' },
+  { id: 4, image: interior2, alt: 'Room planning and design' },
+  { id: 5, image: interior3, alt: 'Architectural planning blueprint' },
+  { id: 6, image: interior4, alt: 'Structural design planning' },
 ];
 
 const exteriorSliderImages = [
