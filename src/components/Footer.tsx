@@ -282,7 +282,7 @@ const Footer = () => {
           repeat: Infinity,
           ease: 'easeInOut'
         }}>
-            Built with ❤️ by aeon labs          
+            Built with ❤️ by aeon lab          
           </motion.p>
         </motion.div>
       </motion.div>
