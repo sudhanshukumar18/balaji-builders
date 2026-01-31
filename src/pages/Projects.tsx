@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import projectResidential1 from '@/assets/project-residential-1.png';
 import projectResidential2 from '@/assets/project-residential-2.png';
 import interior1 from '@/assets/interior-1.jpg';
 import interior2 from '@/assets/interior-2.jpg';
@@ -26,18 +25,18 @@ import exterior10 from '@/assets/exterior-10.jpg';
 import exterior11 from '@/assets/exterior-11.jpg';
 import exterior12 from '@/assets/exterior-12.jpg';
 import exterior13 from '@/assets/exterior-13.jpg';
+import planning1 from '@/assets/planning-1.jpg';
+import planning2 from '@/assets/planning-2.jpg';
+import planning3 from '@/assets/planning-3.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import ImageAutoSlider from '@/components/ui/image-auto-slider';
 import { FadeInUp } from '@/components/ui/motion';
 
 const planningImages = [
-  { id: 1, image: projectResidential1, alt: 'Modern residential planning design' },
-  { id: 2, image: projectResidential2, alt: 'Contemporary house floor plan' },
-  { id: 3, image: interior1, alt: 'Interior space planning layout' },
-  { id: 4, image: interior2, alt: 'Room planning and design' },
-  { id: 5, image: interior3, alt: 'Architectural planning blueprint' },
-  { id: 6, image: interior4, alt: 'Structural design planning' },
+  { id: 1, image: planning1, alt: 'Residential floor plan with living room and bedrooms' },
+  { id: 2, image: planning2, alt: 'Multi-unit apartment floor plan layout' },
+  { id: 3, image: planning3, alt: 'Modern home floor plan with parking' },
 ];
 
 const exteriorSliderImages = [
