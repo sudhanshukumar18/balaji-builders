@@ -414,7 +414,7 @@ const HeroSection = () => {
           }} transition={{
             duration: 0.6,
             delay: 0.7
-          }} className="text-muted-foreground text-lg leading-relaxed mb-8 min-h-[80px]">
+          }} className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 min-h-[60px] md:min-h-[80px]">
               {displayText}
               <motion.span animate={{
               opacity: [1, 0]
@@ -548,9 +548,8 @@ const HeroSection = () => {
           }} transition={{
             duration: 0.6,
             delay: 0.5
-          }} className="text-muted-foreground text-base leading-relaxed mb-8">
-              Professional construction & design services in Wardha, Nagpur, Pune. With 6+ years of experience,
-              we transform your vision into reality.
+          }} className="text-muted-foreground text-sm leading-relaxed mb-6 px-2">
+              Professional construction & design services in Wardha, Nagpur & Pune. 6+ years of trusted experience.
             </motion.p>
             <motion.div initial={{
             opacity: 0,
