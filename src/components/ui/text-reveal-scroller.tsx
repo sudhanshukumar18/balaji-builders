@@ -39,11 +39,11 @@ interface WordProps {
 }
 
 const Word = ({ children, progress, range }: WordProps) => {
-  const opacity = useTransform(progress, range, [0.15, 1]);
+  const opacity = useTransform(progress, range, [0.1, 1]);
   const color = useTransform(
     progress,
     range,
-    ['hsl(0 0% 40%)', 'hsl(0 0% 95%)']
+    ['hsl(0 0% 10%)', 'hsl(0 0% 4%)']
   );
 
   return (
