@@ -15,7 +15,7 @@ const About = () => {
     experience: '6+ Years Experience',
     image: founderShubham
   }, {
-    name: 'Prashad Gawande',
+    name: 'Prasad Gawande',
     qualifications: ['B.E (Civil Engg.)'],
     experience: '6+ Years Experience',
     image: founderPrashad
