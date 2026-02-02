@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'fram
 import { useRef, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Counter, Floating } from '@/components/ui/motion';
+import { TextRevealScroller } from '@/components/ui/text-reveal-scroller';
 import heroImage from '@/assets/hero-construction.jpg';
 
 // Floating particles component
@@ -407,22 +408,10 @@ const HeroSection = () => {
               </span>
             </h1>
             
-            <motion.p initial={{
-            opacity: 0
-          }} animate={{
-            opacity: 1
-          }} transition={{
-            duration: 0.6,
-            delay: 0.7
-          }} className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 min-h-[60px] md:min-h-[80px]">
-              {displayText}
-              <motion.span animate={{
-              opacity: [1, 0]
-            }} transition={{
-              duration: 0.5,
-              repeat: Infinity
-            }} className="inline-block w-0.5 h-5 bg-primary ml-1 align-middle" />
-            </motion.p>
+            <TextRevealScroller 
+              text="Professional construction & design services in Wardha, Nagpur, Pune. With 6+ years of experience, we transform your vision into reality with quality craftsmanship and honest work."
+              className="text-base md:text-lg leading-relaxed mb-8 min-h-[60px] md:min-h-[80px]"
+            />
             
             <motion.div initial={{
             opacity: 0,
