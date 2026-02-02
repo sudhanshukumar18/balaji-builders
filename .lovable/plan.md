@@ -1,51 +1,40 @@
 
-# Fix Google Rating Not Showing on Mobile
+
+# Fix Mobile Hero Description Text Visibility
 
 ## Problem Identified
-The Google Rating (5.0) and Years Experience (6+) counters are showing "0.0" and "0+" on mobile devices instead of animating to their actual values.
-
-**Root Cause**: The `Counter` component in `src/components/ui/motion.tsx` uses `useInView` with a `margin: '-100px'` setting. This means the animation only triggers when the element is 100px inside the viewport. On mobile devices with smaller screen heights, the stats cards may not meet this threshold before users scroll past them, leaving the counters stuck at 0.
-
----
+The mobile hero description text is currently using `text-black`, which is not visible against the dark charcoal background overlay. The dark background with black text creates very poor contrast and readability.
 
 ## Solution
+Update the mobile description text styling to use a visible light color that matches the overall design while ensuring good readability on mobile devices.
 
-Reduce the negative margin in the `Counter` component's `useInView` hook to be more mobile-friendly, ensuring the counting animation triggers properly on all screen sizes.
+## Technical Changes
 
----
+### File: `src/components/sections/HeroSection.tsx` (Line 540)
 
-## Technical Implementation
-
-### File: `src/components/ui/motion.tsx`
-
-**Change the Counter component's useInView margin from `-100px` to `-20px`:**
-
+**Current Code:**
 ```tsx
-// Before (line 233)
-const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-// After
-const isInView = useInView(ref, { once: true, margin: '-20px' });
+className="text-black text-sm leading-relaxed mb-6 px-2"
 ```
 
-This smaller margin ensures the counting animation triggers much earlier as the element approaches the viewport edge, making it work reliably on mobile devices where screen real estate is limited.
+**Updated Code:**
+```tsx
+className="text-white/90 text-sm leading-relaxed mb-6 px-2"
+```
 
----
+### Additional Improvements for Better Mobile Readability:
+- Use `text-white/90` for high visibility on dark background
+- Increase line height slightly for better readability
+- Adjust padding for better text wrapping
 
-## Why This Works
+**Final optimized styling:**
+```tsx
+className="text-white/90 text-sm sm:text-base leading-relaxed mb-6"
+```
 
-- `-100px` margin requires the element to be 100px inside the viewport before triggering
-- On mobile (375px wide, ~700px visible height), by the time users see the stats cards, the -100px threshold may not be met before they scroll past
-- Reducing to `-20px` triggers the animation much sooner, ensuring users see the numbers count up as intended
+## Summary
+- Change `text-black` to `text-white/90` for visibility on dark background
+- Add responsive text sizing (`text-sm sm:text-base`) for slightly larger text on small tablets
+- Remove horizontal padding `px-2` since parent already has `px-6`
+- The text will now be clearly visible and match the light-on-dark theme of the hero section
 
----
-
-## Expected Result
-
-After this fix:
-- **Google Rating** will animate from 0 to 5.0
-- **Satisfied Clients** will animate from 0 to 30+
-- **Years Experience** will animate from 0 to 6+
-- **Commitment** will animate from 0 to 100%
-
-All animations will trigger properly on both mobile and desktop devices.
