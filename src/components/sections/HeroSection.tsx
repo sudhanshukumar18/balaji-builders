@@ -537,7 +537,7 @@ const HeroSection = () => {
           }} transition={{
             duration: 0.6,
             delay: 0.5
-           }} className="text-black text-sm leading-relaxed mb-6 px-2">
+           }} className="text-white/90 text-sm sm:text-base leading-relaxed mb-6">
               Professional construction & design services in Wardha, Nagpur & Pune. 6+ years of trusted experience.
             </motion.p>
             <motion.div initial={{
