@@ -355,7 +355,7 @@ const HeroSection = () => {
             }}>
                 ⭐
               </motion.span>
-              Wardha's Trusted Builder
+              Wardha's Trusted Engineers
             </motion.p>
             
             <h1 className="font-display text-5xl xl:text-7xl text-accent-foreground leading-[1.1] mb-6">
@@ -523,7 +523,7 @@ const HeroSection = () => {
             duration: 0.6,
             delay: 0.2
           }} className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-4">
-              Wardha's Trusted Builder
+              Wardha's Trusted Engineers
             </motion.p>
             <motion.h1 initial={{
             opacity: 0,

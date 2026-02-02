@@ -38,7 +38,7 @@ const About = () => {
     description: 'We respect your time and commitments. Our projects are completed on schedule without compromising quality.'
   }];
   return <main className="min-h-screen">
-      <SEOHead title="About Us - 6+ Years Construction Experience" description="Learn about Balaji Design & Constructions, Wardha's trusted builder. 6+ years experience, 5.0★ rating, quality construction with honest work ethics." canonical="/about" />
+      <SEOHead title="About Us - 6+ Years Construction Experience" description="Learn about Balaji Design & Constructions, Wardha's trusted engineers. 6+ years experience, 5.0★ rating, quality construction with honest work ethics." canonical="/about" />
       <BreadcrumbSchema items={[{
       name: 'Home',
       url: '/'
