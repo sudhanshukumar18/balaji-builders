@@ -21,9 +21,9 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
       return;
     }
 
-    const timer1 = setTimeout(() => setPhase('text'), 800);
-    const timer2 = setTimeout(() => setPhase('exit'), 2800);
-    const timer3 = setTimeout(() => onComplete(), 3500);
+    const timer1 = setTimeout(() => setPhase('text'), 1200);
+    const timer2 = setTimeout(() => setPhase('exit'), 4000);
+    const timer3 = setTimeout(() => onComplete(), 5000);
 
     return () => {
       clearTimeout(timer1);
