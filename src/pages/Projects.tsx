@@ -30,6 +30,7 @@ import planning3 from '@/assets/planning-3.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp } from '@/components/ui/motion';
+import InteractiveSelector from '@/components/ui/interactive-selector';
 
 const planningSliderImages = [
   planning1,
@@ -148,23 +149,9 @@ const Projects = () => {
             </div>
           </div>
           
-          {/* Interior Design */}
+          {/* Interior Design with Interactive Selector */}
           <div className="mb-16">
-            <FadeInUp>
-              <div className="mb-8">
-                <p className="text-primary font-medium text-sm uppercase tracking-[0.2em] mb-2">
-                  Interior Concepts
-                </p>
-                <h2 className="font-display text-2xl md:text-3xl text-foreground">Interior Design</h2>
-              </div>
-            </FadeInUp>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {interiorSliderImages.map((image, index) => (
-                <div key={index} className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                  <img src={image} alt={`Interior design ${index + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
-                </div>
-              ))}
-            </div>
+            <InteractiveSelector />
           </div>
         </div>
       </section>
