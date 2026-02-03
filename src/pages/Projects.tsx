@@ -1,7 +1,5 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ImageCard from '@/components/ImageCard';
-import { motion } from 'framer-motion';
 
 import interior1 from '@/assets/interior-1.jpg';
 import interior2 from '@/assets/interior-2.jpg';
@@ -39,31 +37,7 @@ import planning10 from '@/assets/planning-10.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
 import { FadeInUp } from '@/components/ui/motion';
-
-const containerVariants = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.1
-    }
-  }
-} as const;
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: {
-      type: "spring" as const,
-      stiffness: 100,
-      damping: 15
-    }
-  }
-} as const;
+import { motion } from 'framer-motion';
 
 const planningSliderImages = [
   planning1,
@@ -161,23 +135,29 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Planning</h2>
               </div>
             </FadeInUp>
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {planningSliderImages.map((image, index) => (
-                <motion.div key={index} variants={itemVariants} className="aspect-[3/4]">
-                  <ImageCard 
-                    image={image} 
-                    alt={`Planning design ${index + 1}`}
-                    aspectRatio="3/4"
-                    category="Floor Plan"
+                <motion.div 
+                  key={index}
+                  className="aspect-[3/4] rounded-lg overflow-hidden shadow-lg cursor-pointer bg-muted"
+                  whileHover={{ 
+                    scale: 1.03, 
+                    y: -8,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <motion.img 
+                    src={image} 
+                    alt={`Planning design ${index + 1}`} 
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.4 }}
+                    loading="lazy"
                   />
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
           
           {/* Exterior Design */}
@@ -190,24 +170,29 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Exterior Design</h2>
               </div>
             </FadeInUp>
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {exteriorSliderImages.map((image, index) => (
-                <motion.div key={index} variants={itemVariants} className="aspect-[4/3]">
-                  <ImageCard 
-                    image={image} 
-                    alt={`Exterior design ${index + 1}`}
-                    aspectRatio="4/3"
-                    category="Exterior"
+                <motion.div 
+                  key={index}
+                  className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                  whileHover={{ 
+                    scale: 1.03, 
+                    y: -8,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <motion.img 
+                    src={image} 
+                    alt={`Exterior design ${index + 1}`} 
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.4 }}
+                    loading="lazy"
                   />
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
           
           {/* Interior Design */}
@@ -220,24 +205,29 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Interior Design</h2>
               </div>
             </FadeInUp>
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {interiorSliderImages.map((image, index) => (
-                <motion.div key={index} variants={itemVariants} className="aspect-[4/3]">
-                  <ImageCard 
-                    image={image} 
-                    alt={`Interior design ${index + 1}`}
-                    aspectRatio="4/3"
-                    category="Interior"
+                <motion.div 
+                  key={index}
+                  className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                  whileHover={{ 
+                    scale: 1.03, 
+                    y: -8,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <motion.img 
+                    src={image} 
+                    alt={`Interior design ${index + 1}`} 
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.4 }}
+                    loading="lazy"
                   />
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
