@@ -135,11 +135,11 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Planning</h2>
               </div>
             </FadeInUp>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {planningSliderImages.map((image, index) => (
                 <motion.div 
                   key={index}
-                  className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                  className="aspect-[3/4] rounded-lg overflow-hidden shadow-lg cursor-pointer bg-muted"
                   whileHover={{ 
                     scale: 1.03, 
                     y: -8,
