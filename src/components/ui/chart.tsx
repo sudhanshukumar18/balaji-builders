@@ -58,33 +58,82 @@ const ChartContainer = React.forwardRef<
 });
 ChartContainer.displayName = "Chart";
 
+// Validates a color value to ensure it's a safe CSS color
+const isValidColor = (color: string): boolean => {
+  // Allow hex colors, rgb/rgba, hsl/hsla, and named colors
+  const colorPattern = /^(#[0-9a-fA-F]{3,8}|rgb\(|rgba\(|hsl\(|hsla\(|[a-zA-Z]+)[\w\s,.()%-]*$/;
+  return colorPattern.test(color.trim());
+};
+
+// Validates a key to ensure it's safe for CSS variable names
+const isValidKey = (key: string): boolean => {
+  // Only allow alphanumeric characters, hyphens, and underscores
+  return /^[a-zA-Z0-9_-]+$/.test(key);
+};
+
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(([_, config]) => config.theme || config.color);
 
-  if (!colorConfig.length) {
-    return null;
-  }
+  // Use useInsertionEffect to inject styles safely without dangerouslySetInnerHTML
+  React.useInsertionEffect(() => {
+    if (!colorConfig.length) {
+      return;
+    }
 
-  return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: Object.entries(THEMES)
-          .map(
-            ([theme, prefix]) => `
-${prefix} [data-chart=${id}] {
-${colorConfig
-  .map(([key, itemConfig]) => {
-    const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
-    return color ? `  --color-${key}: ${color};` : null;
-  })
-  .join("\n")}
-}
-`,
-          )
-          .join("\n"),
-      }}
-    />
-  );
+    const styleId = `chart-style-${id}`;
+    
+    // Remove existing style element if present
+    const existingStyle = document.getElementById(styleId);
+    if (existingStyle) {
+      existingStyle.remove();
+    }
+
+    // Create new style element
+    const styleElement = document.createElement('style');
+    styleElement.id = styleId;
+
+    // Build CSS rules safely with validation
+    const cssRules = Object.entries(THEMES)
+      .map(([theme, prefix]) => {
+        const variables = colorConfig
+          .map(([key, itemConfig]) => {
+            // Validate key for CSS variable name safety
+            if (!isValidKey(key)) {
+              console.warn(`Invalid chart config key: ${key}`);
+              return null;
+            }
+            
+            const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
+            
+            // Validate color value for safety
+            if (color && !isValidColor(color)) {
+              console.warn(`Invalid color value for ${key}: ${color}`);
+              return null;
+            }
+            
+            return color ? `  --color-${key}: ${color};` : null;
+          })
+          .filter(Boolean)
+          .join('\n');
+        
+        return `${prefix} [data-chart=${id}] {\n${variables}\n}`;
+      })
+      .join('\n');
+
+    styleElement.textContent = cssRules;
+    document.head.appendChild(styleElement);
+
+    // Cleanup on unmount
+    return () => {
+      const styleToRemove = document.getElementById(styleId);
+      if (styleToRemove) {
+        styleToRemove.remove();
+      }
+    };
+  }, [id, colorConfig]);
+
+  // No need to render anything - styles are injected via useInsertionEffect
+  return null;
 };
 
 const ChartTooltip = RechartsPrimitive.Tooltip;
