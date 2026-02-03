@@ -30,7 +30,6 @@ import planning2 from '@/assets/planning-2.jpg';
 import planning3 from '@/assets/planning-3.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema } from '@/components/StructuredData';
-import ImageAutoSlider from '@/components/ui/image-auto-slider';
 import { FadeInUp } from '@/components/ui/motion';
 
 const planningSliderImages = [
@@ -113,7 +112,7 @@ const Projects = () => {
       {/* Gallery Sections */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          {/* Planning with Auto Slider */}
+          {/* Planning */}
           <div className="mb-16">
             <FadeInUp>
               <div className="mb-8">
@@ -123,10 +122,16 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Planning</h2>
               </div>
             </FadeInUp>
-            <ImageAutoSlider images={planningSliderImages} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {planningSliderImages.map((image, index) => (
+                <div key={index} className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                  <img src={image} alt={`Planning design ${index + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
           
-          {/* Exterior Design with Auto Slider */}
+          {/* Exterior Design */}
           <div className="mb-16">
             <FadeInUp>
               <div className="mb-8">
@@ -136,10 +141,16 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Exterior Design</h2>
               </div>
             </FadeInUp>
-            <ImageAutoSlider images={exteriorSliderImages} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {exteriorSliderImages.map((image, index) => (
+                <div key={index} className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                  <img src={image} alt={`Exterior design ${index + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
           
-          {/* Interior Design with Flip Gallery */}
+          {/* Interior Design */}
           <div className="mb-16">
             <FadeInUp>
               <div className="mb-8">
@@ -149,7 +160,13 @@ const Projects = () => {
                 <h2 className="font-display text-2xl md:text-3xl text-foreground">Interior Design</h2>
               </div>
             </FadeInUp>
-            <ImageAutoSlider images={interiorSliderImages} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {interiorSliderImages.map((image, index) => (
+                <div key={index} className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                  <img src={image} alt={`Interior design ${index + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
