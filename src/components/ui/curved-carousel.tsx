@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, useMotionValue, PanInfo } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -11,43 +11,26 @@ interface CurvedCarouselProps {
 
 export default function CurvedCarousel({ images, className }: CurvedCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(Math.floor(images.length / 2));
+  const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
+  const dragX = useMotionValue(0);
   
-  const visibleCount = 7; // Number of visible cards
+  const visibleCount = 7;
   const cardWidth = 280;
-  const cardGap = 20;
+  const swipeThreshold = 50; // Minimum swipe distance to trigger navigation
   
   const getCardStyle = (index: number) => {
     const diff = index - activeIndex;
     const absDiff = Math.abs(diff);
     
-    // Calculate position along the curve
     const xOffset = diff * (cardWidth * 0.6);
-    
-    // Y position creates the curve (parabola)
     const yOffset = Math.pow(absDiff, 1.8) * 25;
-    
-    // Scale decreases as we move away from center
     const scale = Math.max(0.5, 1 - absDiff * 0.12);
-    
-    // Rotation for 3D effect
     const rotateY = diff * -8;
-    
-    // Z-index for stacking
     const zIndex = 50 - absDiff;
-    
-    // Opacity fades out at edges
     const opacity = Math.max(0.3, 1 - absDiff * 0.2);
     
-    return {
-      x: xOffset,
-      y: yOffset,
-      scale,
-      rotateY,
-      zIndex,
-      opacity,
-    };
+    return { x: xOffset, y: yOffset, scale, rotateY, zIndex, opacity };
   };
 
   const scrollTo = (index: number) => {
@@ -57,6 +40,25 @@ export default function CurvedCarousel({ images, className }: CurvedCarouselProp
 
   const scrollPrev = () => scrollTo(activeIndex - 1);
   const scrollNext = () => scrollTo(activeIndex + 1);
+
+  // Handle drag/swipe
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    setIsDragging(false);
+    const { offset, velocity } = info;
+    
+    // Use velocity for quick swipes, offset for slow drags
+    const swipe = offset.x + velocity.x * 0.5;
+    
+    if (swipe < -swipeThreshold) {
+      scrollNext();
+    } else if (swipe > swipeThreshold) {
+      scrollPrev();
+    }
+  };
+
+  const handleDragStart = () => {
+    setIsDragging(true);
+  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -69,15 +71,20 @@ export default function CurvedCarousel({ images, className }: CurvedCarouselProp
   }, [activeIndex]);
 
   return (
-    <div className={cn('relative w-full', className)}>
-      {/* Carousel container */}
-      <div 
+    <div className={cn('relative w-full select-none', className)}>
+      {/* Carousel container with swipe */}
+      <motion.div 
         ref={containerRef}
-        className="relative h-[450px] md:h-[500px] flex items-end justify-center overflow-hidden"
+        className="relative h-[450px] md:h-[500px] flex items-end justify-center overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y"
         style={{ perspective: '1200px' }}
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.1}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
       >
         {/* Cards */}
-        <div className="relative w-full h-full flex items-center justify-center">
+        <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
           {images.map((image, index) => {
             const style = getCardStyle(index);
             const isActive = index === activeIndex;
@@ -90,7 +97,7 @@ export default function CurvedCarousel({ images, className }: CurvedCarouselProp
             return (
               <motion.div
                 key={index}
-                className="absolute cursor-pointer"
+                className="absolute cursor-pointer pointer-events-auto"
                 style={{
                   width: cardWidth,
                   zIndex: style.zIndex,
@@ -107,7 +114,7 @@ export default function CurvedCarousel({ images, className }: CurvedCarouselProp
                   stiffness: 300,
                   damping: 30,
                 }}
-                onClick={() => scrollTo(index)}
+                onPointerUp={() => !isDragging && scrollTo(index)}
                 whileHover={isActive ? { scale: style.scale * 1.05 } : {}}
               >
                 <div 
@@ -144,7 +151,14 @@ export default function CurvedCarousel({ images, className }: CurvedCarouselProp
             );
           })}
         </div>
-      </div>
+        
+        {/* Swipe hint for mobile */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 text-muted-foreground/60 text-xs md:hidden">
+          <ChevronLeft className="w-3 h-3 animate-pulse" />
+          <span>Swipe to navigate</span>
+          <ChevronRight className="w-3 h-3 animate-pulse" />
+        </div>
+      </motion.div>
 
       {/* Navigation buttons */}
       <div className="flex items-center justify-center gap-4 mt-6">
