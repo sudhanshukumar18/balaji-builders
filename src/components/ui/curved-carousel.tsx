@@ -118,10 +118,7 @@ export default function CurvedCarousel({ images, className }: CurvedCarouselProp
                 whileHover={isActive ? { scale: style.scale * 1.05 } : {}}
               >
                 <div 
-                  className={cn(
-                    'relative rounded-xl overflow-hidden shadow-2xl transition-shadow duration-300',
-                    isActive ? 'ring-2 ring-primary ring-offset-2 ring-offset-background shadow-primary/20' : ''
-                  )}
+                  className="relative rounded-xl overflow-hidden shadow-2xl transition-shadow duration-300"
                 >
                   <div className="aspect-[3/4] bg-muted">
                     <img
@@ -135,16 +132,6 @@ export default function CurvedCarousel({ images, className }: CurvedCarouselProp
                   {/* Gradient overlay for non-active cards */}
                   {!isActive && (
                     <div className="absolute inset-0 bg-charcoal/30" />
-                  )}
-                  
-                  {/* Active card glow effect */}
-                  {isActive && (
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
                   )}
                 </div>
               </motion.div>
