@@ -115,7 +115,7 @@ export default function CurvedCarousel({
             scale: style.scale * 1.05
           } : {}}>
                 <div className="relative rounded-xl overflow-hidden shadow-2xl transition-shadow duration-300">
-                  <div className={cn(aspectClasses[aspectRatio], "bg-muted")}>
+                  <div className={cn(aspectClasses[aspectRatio], "bg-charcoal")}>
                     <img src={image} alt={`Gallery image ${index + 1}`} className="w-full h-full object-contain" loading="lazy" />
                   </div>
                   
