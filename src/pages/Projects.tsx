@@ -78,6 +78,7 @@ const exteriorSliderImages = [
   exterior8,
   exterior9,
   exterior10,
+  exterior11,
   exterior12,
   exterior13,
   exterior14,
