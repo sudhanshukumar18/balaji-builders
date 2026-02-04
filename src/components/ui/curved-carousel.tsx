@@ -116,7 +116,7 @@ export default function CurvedCarousel({
           } : {}}>
                 <div className="relative rounded-xl overflow-hidden shadow-2xl transition-shadow duration-300">
                   <div className={cn(aspectClasses[aspectRatio], "bg-muted")}>
-                    <img src={image} alt={`Gallery image ${index + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                    <img src={image} alt={`Gallery image ${index + 1}`} className="w-full h-full object-contain" loading="lazy" />
                   </div>
                   
                   {/* Gradient overlay for non-active cards */}
