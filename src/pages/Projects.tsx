@@ -51,6 +51,15 @@ import exterior31 from '@/assets/exterior-31.jpg';
 import exterior32 from '@/assets/exterior-32.jpg';
 import exterior33 from '@/assets/exterior-33.jpg';
 import exterior34 from '@/assets/exterior-34.jpg';
+import exterior35 from '@/assets/exterior-35.jpg';
+import exterior36 from '@/assets/exterior-36.jpg';
+import exterior37 from '@/assets/exterior-37.jpg';
+import exterior38 from '@/assets/exterior-38.jpg';
+import exterior39 from '@/assets/exterior-39.jpg';
+import exterior40 from '@/assets/exterior-40.jpg';
+import exterior41 from '@/assets/exterior-41.jpg';
+import exterior42 from '@/assets/exterior-42.jpg';
+import exterior43 from '@/assets/exterior-43.jpg';
 import planning1 from '@/assets/planning-1.jpg';
 import planning2 from '@/assets/planning-2.jpg';
 import planning3 from '@/assets/planning-3.jpg';
@@ -115,6 +124,15 @@ const exteriorSliderImages = [
   exterior32,
   exterior33,
   exterior34,
+  exterior35,
+  exterior36,
+  exterior37,
+  exterior38,
+  exterior39,
+  exterior40,
+  exterior41,
+  exterior42,
+  exterior43,
 ];
 
 const interiorSliderImages = [
