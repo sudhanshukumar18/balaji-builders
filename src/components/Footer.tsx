@@ -253,6 +253,11 @@ const Footer = () => {
                   Bachelor Road, Wardha,
                   <br />
                   Maharashtra 442001
+                  <br />
+                  <br />
+                  2 Pratap Nagar,
+                  <br />
+                  Nagpur, Maharashtra
                 </span>
               </motion.li>
             </ul>
