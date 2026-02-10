@@ -17,7 +17,7 @@ const contactFAQs = [
   },
   {
     question: 'What areas do you serve in Maharashtra?',
-    answer: 'We primarily serve Wardha district and surrounding areas including Nagpur, Amravati, Chandrapur, and other parts of Vidarbha region in Maharashtra. Contact us to discuss your project location.',
+    answer: 'We primarily serve Wardha district and surrounding areas including Nagpur (where we have our second office at 2 Pratap Nagar), Amravati, Chandrapur, and other parts of Vidarbha region in Maharashtra. Contact us to discuss your project location.',
   },
   {
     question: 'What are your working hours?',
@@ -143,11 +143,25 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-display text-lg sm:text-xl text-foreground mb-2">Address</p>
+                    <p className="font-display text-lg sm:text-xl text-foreground mb-2">Office 1 – Wardha</p>
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       Prism Square<br />
                       Bachelor Road, Wardha<br />
                       Maharashtra 442001
+                    </p>
+                  </div>
+                </div>
+
+                {/* Nagpur Address Card */}
+                <div className="group flex items-start gap-3 sm:gap-5 p-4 sm:p-6 bg-secondary border border-border hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all duration-300">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-display text-lg sm:text-xl text-foreground mb-2">Office 2 – Nagpur</p>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      2 Pratap Nagar<br />
+                      Nagpur, Maharashtra
                     </p>
                   </div>
                 </div>
