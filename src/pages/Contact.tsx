@@ -9,25 +9,19 @@ import { useToast } from '@/hooks/use-toast';
 import heroImage from '@/assets/hero-construction.jpg';
 import SEOHead from '@/components/SEOHead';
 import { BreadcrumbSchema, FAQSchema } from '@/components/StructuredData';
-
-const contactFAQs = [
-  {
-    question: 'How can I get a free construction quote?',
-    answer: 'Getting a free quote is easy! Call us at +91 86248 38652, WhatsApp us, or email balajidesignandconstruction@gmail.com. You can also visit our office at Prism Square, Bachelor Road, Wardha. We provide detailed estimates after understanding your project requirements.',
-  },
-  {
-    question: 'What areas do you serve in Maharashtra?',
-    answer: 'We primarily serve Wardha district and surrounding areas including Nagpur (where we have our second office at 2 Pratap Nagar), Amravati, Chandrapur, and other parts of Vidarbha region in Maharashtra. Contact us to discuss your project location.',
-  },
-  {
-    question: 'What are your working hours?',
-    answer: 'Our office is open Monday to Saturday from 9:00 AM to 6:00 PM. We are closed on Sundays. However, you can reach us via WhatsApp or email anytime, and we will respond on the next business day.',
-  },
-  {
-    question: 'How long does it take to get a response after inquiry?',
-    answer: 'We typically respond to all inquiries within 24 hours on business days. For urgent matters, calling us directly at +91 86248 38652 is the fastest way to get in touch.',
-  },
-];
+const contactFAQs = [{
+  question: 'How can I get a free construction quote?',
+  answer: 'Getting a free quote is easy! Call us at +91 86248 38652, WhatsApp us, or email balajidesignandconstruction@gmail.com. You can also visit our office at Prism Square, Bachelor Road, Wardha. We provide detailed estimates after understanding your project requirements.'
+}, {
+  question: 'What areas do you serve in Maharashtra?',
+  answer: 'We primarily serve Wardha district and surrounding areas including Nagpur (where we have our second office at 2 Pratap Nagar), Amravati, Chandrapur, and other parts of Vidarbha region in Maharashtra. Contact us to discuss your project location.'
+}, {
+  question: 'What are your working hours?',
+  answer: 'Our office is open Monday to Saturday from 9:00 AM to 6:00 PM. We are closed on Sundays. However, you can reach us via WhatsApp or email anytime, and we will respond on the next business day.'
+}, {
+  question: 'How long does it take to get a response after inquiry?',
+  answer: 'We typically respond to all inquiries within 24 hours on business days. For urgent matters, calling us directly at +91 86248 38652 is the fastest way to get in touch.'
+}];
 const Contact = () => {
   const {
     toast
@@ -122,10 +116,7 @@ const Contact = () => {
                 </div>
 
                 {/* Email Card */}
-                <a 
-                  href="mailto:balajidesignandconstruction@gmail.com" 
-                  className="group flex items-start gap-3 sm:gap-5 p-4 sm:p-6 bg-secondary border border-border hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all duration-300"
-                >
+                <a href="mailto:balajidesignandconstruction@gmail.com" className="group flex items-start gap-3 sm:gap-5 p-4 sm:p-6 bg-secondary border border-border hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all duration-300">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
@@ -160,7 +151,7 @@ const Contact = () => {
                   <div className="flex-1 min-w-0">
                     <p className="font-display text-lg sm:text-xl text-foreground mb-2">Office 2 – Nagpur</p>
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      2 Pratap Nagar<br />
+                       Pratap Nagar<br />
                       Nagpur, Maharashtra
                     </p>
                   </div>
@@ -204,28 +195,15 @@ const Contact = () => {
                 Reach out to us directly through your preferred channel.
               </p>
               <div className="flex flex-col gap-3 sm:gap-4">
-                <a
-                  href="https://wa.me/918624838652?text=Hi%2C%20I'd%20like%20to%20inquire%20about%20your%20construction%20services."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary rounded-none w-full flex items-center justify-center gap-2 sm:gap-3 py-3 sm:py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium text-sm sm:text-base"
-                >
+                <a href="https://wa.me/918624838652?text=Hi%2C%20I'd%20like%20to%20inquire%20about%20your%20construction%20services." target="_blank" rel="noopener noreferrer" className="btn-primary rounded-none w-full flex items-center justify-center gap-2 sm:gap-3 py-3 sm:py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium text-sm sm:text-base">
                   <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                   Chat on WhatsApp
                 </a>
-                <a
-                  href="tel:+918624838652"
-                  className="btn-primary rounded-none w-full flex items-center justify-center gap-2 sm:gap-3 py-3 sm:py-4 text-sm sm:text-base"
-                >
+                <a href="tel:+918624838652" className="btn-primary rounded-none w-full flex items-center justify-center gap-2 sm:gap-3 py-3 sm:py-4 text-sm sm:text-base">
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                   Call Us Now
                 </a>
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=balajidesignandconstruction@gmail.com&su=Hi&body=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20construction%20services."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-none w-full flex items-center justify-center gap-2 sm:gap-3 py-3 sm:py-4 bg-[#EA4335] hover:bg-[#d33426] text-white transition-colors font-medium text-sm sm:text-base"
-                >
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=balajidesignandconstruction@gmail.com&su=Hi&body=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20construction%20services." target="_blank" rel="noopener noreferrer" className="rounded-none w-full flex items-center justify-center gap-2 sm:gap-3 py-3 sm:py-4 bg-[#EA4335] hover:bg-[#d33426] text-white transition-colors font-medium text-sm sm:text-base">
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                   Send via Gmail
                 </a>
